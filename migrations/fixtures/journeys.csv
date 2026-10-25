@@ -1,0 +1,5 @@
+journey_id,name,legacy_labels,description,weight
+become-bidder,Become a bidder,Bidders,"Register on the official GNWT procurement website and learn how bidding works.",1
+find-support,Find procurement support,Procurement Help|Training,"Training, Business Incentive Policy guidance, general questions and the vendor complaint process.",2
+payment-enquiry,Ask about a payment,Payments,"Submit invoices, check on a payment and set up direct deposit through official channels.",3
+other-government,Other governments,Other Govt,"Services run by a different government, listed so users do not confuse them with GNWT services.",4

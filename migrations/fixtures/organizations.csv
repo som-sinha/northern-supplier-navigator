@@ -1,0 +1,7 @@
+org_id,name,government,parent_id,website
+ORG-FIN,Department of Finance,GNWT,,https://www.fin.gov.nt.ca/
+ORG-FIN-PSS,Procurement Shared Services,GNWT,ORG-FIN,https://www.fin.gov.nt.ca/en/services/1-procurement-shared-services
+ORG-FIN-FESS,Financial and Employee Shared Services,GNWT,ORG-FIN,https://www.fin.gov.nt.ca/en/financial-and-employee-shared-services
+ORG-SAM,SAM Help Desk,GNWT,,https://www.fin.gov.nt.ca/en/services/6-current-opportunities-and-awarded-contracts
+ORG-ITI-BIP,"BIP Monitoring Office, Industry, Tourism and Investment",GNWT,,https://www.iti.gov.nt.ca/en/services/business-incentive-policy
+ORG-CYK,City of Yellowknife,City of Yellowknife,,https://www.yellowknife.ca/

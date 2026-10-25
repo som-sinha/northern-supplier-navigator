@@ -1,0 +1,19 @@
+item_id,guide_id,sequence,kind,action,required,note
+CHK-001-01,GDE-001,1,prepare,"Full legal company name for the ""Entity Name"" field",unstated,"Must match your Business Incentive Policy registry entry if you are registered."
+CHK-001-02,GDE-001,2,prepare,Answers to the registration profile questions,unstated,
+CHK-001-03,GDE-001,3,prepare,"Company address, city, postal code and province or territory",unstated,
+CHK-001-04,GDE-001,4,prepare,Email address,unstated,"Email updates go to this address."
+CHK-001-05,GDE-001,5,prepare,A contact person,unstated,
+CHK-001-06,GDE-001,6,prepare,"A preferred user ID for the ""Requested User ID"" field",unstated,
+CHK-001-07,GDE-001,7,prepare,Procurement categories you want email updates for,unstated,
+CHK-004-01,GDE-004,1,eligibility,Majority ownership within the NWT (51%),yes,"Eligibility criterion from the official BIP page. This app does not assess it."
+CHK-004-02,GDE-004,2,eligibility,Resident within the NWT for the past 12 months,yes,"Eligibility criterion from the official BIP page. This app does not assess it."
+CHK-004-03,GDE-004,3,prepare,A copy of a driver's licence or the T2222 Northern residency tax form,yes,"Send it with your application to the BIP office, never to this site."
+CHK-008-01,GDE-008,1,prepare,Name of the department or agency the invoice is for,yes,
+CHK-008-02,GDE-008,2,prepare,Your company's legal name and mailing address,yes,
+CHK-008-03,GDE-008,3,prepare,Invoice number,yes,
+CHK-008-04,GDE-008,4,prepare,Invoice date,yes,
+CHK-008-05,GDE-008,5,prepare,Purchase order number(s),yes,
+CHK-008-06,GDE-008,6,prepare,"A clear description of the goods or services, with any supporting backup",yes,
+CHK-008-07,GDE-008,7,prepare,Date the goods or services were provided,yes,
+CHK-009-01,GDE-009,1,prepare,Your invoice number,unstated,"The source says it helps staff find your file faster."
