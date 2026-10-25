@@ -1,0 +1,16 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: en
+uuid: 8ea87e43-f8e8-44db-aa61-d0e4740a7330
+name: 'Northern Supplier Navigator'
+mail: admin@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: null
+config_sync_directory: ../config/sync

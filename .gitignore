@@ -1,0 +1,48 @@
+# Composer dependencies (rebuilt from composer.lock by `composer install`)
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/drush/Commands/contrib/
+
+# Drupal files (user-generated content)
+/web/sites/*/files/
+/web/sites/*/private/
+
+# Drupal sensitive config (keep settings.php, ignore environment-specific)
+/web/sites/*/settings.local.php
+/web/sites/*/settings.ddev.php
+/web/sites/*/*services*.yml
+!/web/sites/*/default.services.yml
+
+# Drupal test files
+/web/sites/simpletest/
+
+# DDEV local config
+/.ddev/.ddev-docker-compose-*
+/.ddev/.global_commands
+/.ddev/.homeadditions
+/.ddev/.sso-config
+/.ddev/db_snapshots/
+/.ddev/sequelpro.spf
+/.ddev/import-db/
+/.ddev/*.local.yaml
+
+# Personal guides and explanations (local only)
+/guides/
+
+# IDE
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+/web/core/*.map
