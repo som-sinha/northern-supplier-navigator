@@ -25,8 +25,8 @@ services and collects no personal, banking, bid or invoice information.
 Requirements: Docker Desktop (or OrbStack) and DDEV.
 
 ```bash
-git clone <repo-url> gnwt-application
-cd gnwt-application
+git clone https://github.com/som-sinha/northern-supply-navigator.git
+cd northern-supply-navigator
 ddev start
 ddev composer install
 ddev drush site:install --existing-config -y
