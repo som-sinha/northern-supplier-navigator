@@ -1,8 +1,7 @@
 # Source inventory and migration fixture
 
-**Portfolio fixture, not a GNWT extract.** These files were hand-curated on
-2026-10-25 from public GNWT Finance, GNWT ITI and City of Yellowknife web pages.
-The legacy-shaped format (free-text categories, pipe-separated lists, string IDs)
+Compiled by hand on 2026-10-25 from the public pages listed under
+[Sources](#sources). The legacy-shaped format (free-text categories, pipe-separated lists, string IDs)
 gives the Drupal Migrate API something realistic to transform. No tenders,
 transactions, supplier accounts or personal data are included.
 

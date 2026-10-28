@@ -1,9 +1,12 @@
 # Northern Supplier Navigator
 
-An independent portfolio prototype: a task-oriented Drupal application that helps
-Yellowknife-area businesses find the right public GNWT supplier service and prepare
-their next step. **Not an official or endorsed GNWT product.** It links to official
+A task-oriented Drupal application that helps Yellowknife-area businesses find the
+right public GNWT supplier service and prepare their next step. It links to official
 services and collects no personal, banking, bid or invoice information.
+
+> **Disclaimer:** All data on this site was compiled from publicly available GNWT and
+> City of Yellowknife information. It may contain errors and is for demonstration
+> only. This is an independent portfolio project, not an official GNWT service.
 
 ## Status
 
