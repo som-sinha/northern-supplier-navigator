@@ -1,0 +1,21 @@
+uuid: 33a40cba-719c-4c1c-8612-8ee5e98dee28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_kind
+    - paragraphs.paragraphs_type.checklist_item
+  module:
+    - options
+id: paragraph.checklist_item.field_kind
+field_name: field_kind
+entity_type: paragraph
+bundle: checklist_item
+label: kind
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

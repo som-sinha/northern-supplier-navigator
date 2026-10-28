@@ -1,0 +1,21 @@
+uuid: e9843bad-599c-4fdf-977e-e15d60c88c47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_government
+    - taxonomy.vocabulary.organization
+  module:
+    - options
+id: taxonomy_term.organization.field_government
+field_name: field_government
+entity_type: taxonomy_term
+bundle: organization
+label: government
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,23 @@
+uuid: 3048c152-d3af-4741-9610-4eee035e5864
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_size_bytes
+    - paragraphs.paragraphs_type.resource
+id: paragraph.resource.field_size_bytes
+field_name: field_size_bytes
+entity_type: paragraph
+bundle: resource
+label: 'size bytes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

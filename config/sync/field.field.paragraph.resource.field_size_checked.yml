@@ -1,0 +1,21 @@
+uuid: 893257a9-afc0-402c-bd0e-a501a8b498dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_size_checked
+    - paragraphs.paragraphs_type.resource
+  module:
+    - datetime
+id: paragraph.resource.field_size_checked
+field_name: field_size_checked
+entity_type: paragraph
+bundle: resource
+label: 'size checked'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

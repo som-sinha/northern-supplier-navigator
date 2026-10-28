@@ -1,0 +1,21 @@
+uuid: 9b67d1d3-257c-4894-96d0-d47cc302e9dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_format
+    - paragraphs.paragraphs_type.resource
+  module:
+    - options
+id: paragraph.resource.field_format
+field_name: field_format
+entity_type: paragraph
+bundle: resource
+label: format
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

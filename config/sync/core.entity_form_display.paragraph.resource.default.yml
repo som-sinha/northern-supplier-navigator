@@ -1,0 +1,55 @@
+uuid: 7879caf4-071f-47fe-88fe-011bdd1cb475
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.resource.field_format
+    - field.field.paragraph.resource.field_resource_language
+    - field.field.paragraph.resource.field_resource_link
+    - field.field.paragraph.resource.field_size_bytes
+    - field.field.paragraph.resource.field_size_checked
+    - paragraphs.paragraphs_type.resource
+  module:
+    - datetime
+    - link
+id: paragraph.resource.default
+targetEntityType: paragraph
+bundle: resource
+mode: default
+content:
+  field_format:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_resource_language:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_resource_link:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_size_bytes:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_size_checked:
+    type: datetime_default
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

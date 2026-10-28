@@ -1,0 +1,29 @@
+uuid: 3a89076d-2b72-4168-bc2b-b792e54f09e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_review_owner
+    - node.type.service_guide
+id: node.service_guide.field_review_owner
+field_name: field_review_owner
+entity_type: node
+bundle: service_guide
+label: 'review owner'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

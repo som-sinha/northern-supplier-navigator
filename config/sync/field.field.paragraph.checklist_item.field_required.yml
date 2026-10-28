@@ -1,0 +1,21 @@
+uuid: c0cf7c7b-1ff7-4639-83ba-3fceca72ed10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_required
+    - paragraphs.paragraphs_type.checklist_item
+  module:
+    - options
+id: paragraph.checklist_item.field_required
+field_name: field_required
+entity_type: paragraph
+bundle: checklist_item
+label: required
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

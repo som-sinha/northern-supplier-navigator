@@ -1,0 +1,18 @@
+uuid: 9593a78a-7db2-4382-b8dc-982375378eb0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Service guide'
+type: service_guide
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

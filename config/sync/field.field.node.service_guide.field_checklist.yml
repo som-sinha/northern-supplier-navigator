@@ -1,0 +1,34 @@
+uuid: bc6647a3-e345-49c7-be98-cb715949af8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_checklist
+    - node.type.service_guide
+    - paragraphs.paragraphs_type.checklist_item
+  module:
+    - entity_reference_revisions
+id: node.service_guide.field_checklist
+field_name: field_checklist
+entity_type: node
+bundle: service_guide
+label: checklist
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      checklist_item: checklist_item
+    negate: 0
+    target_bundles_drag_drop:
+      checklist_item:
+        weight: 3
+        enabled: true
+      resource:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

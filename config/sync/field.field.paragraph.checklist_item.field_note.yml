@@ -1,0 +1,19 @@
+uuid: 58735a0f-000c-4acc-9468-78c83457123f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_note
+    - paragraphs.paragraphs_type.checklist_item
+id: paragraph.checklist_item.field_note
+field_name: field_note
+entity_type: paragraph
+bundle: checklist_item
+label: note
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

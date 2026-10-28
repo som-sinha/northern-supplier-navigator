@@ -1,0 +1,19 @@
+uuid: 3567e552-f7ac-4e5f-8792-cb78537c14f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_editor_notes
+    - node.type.service_guide
+id: node.service_guide.field_editor_notes
+field_name: field_editor_notes
+entity_type: node
+bundle: service_guide
+label: 'editor notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

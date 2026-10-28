@@ -1,0 +1,30 @@
+uuid: 742bd14b-ed75-43aa-974a-f073c629bde8
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_required
+field_name: field_required
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'yes'
+      label: Required
+    -
+      value: 'no'
+      label: Optional
+    -
+      value: unstated
+      label: 'Not stated'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

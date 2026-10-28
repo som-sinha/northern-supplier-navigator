@@ -1,0 +1,42 @@
+uuid: 204c32be-8b00-4301-b0e4-1d8cabec3ef6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.checklist_item.field_action
+    - field.field.paragraph.checklist_item.field_kind
+    - field.field.paragraph.checklist_item.field_note
+    - field.field.paragraph.checklist_item.field_required
+    - paragraphs.paragraphs_type.checklist_item
+  module:
+    - options
+id: paragraph.checklist_item.default
+targetEntityType: paragraph
+bundle: checklist_item
+mode: default
+content:
+  field_action:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_note:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_required:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_kind: true

@@ -1,0 +1,29 @@
+uuid: 6aeff034-7ed3-4444-a5ff-7adebd957b8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_journey
+    - node.type.service_guide
+    - taxonomy.vocabulary.journey
+id: node.service_guide.field_journey
+field_name: field_journey
+entity_type: node
+bundle: service_guide
+label: journey
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      journey: journey
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

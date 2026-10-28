@@ -30,8 +30,14 @@ cd gnwt-application
 ddev start
 ddev composer install
 ddev drush site:install --existing-config -y
+ddev drush user:create portfolio-editor --mail=portfolio-editor@example.com --password="$(openssl rand -base64 24)"
+ddev drush user:role:add content_editor portfolio-editor
 ddev drush uli    # one-time admin login link
 ```
+
+User accounts are content, not configuration, so `portfolio-editor` is created by
+hand on each environment. The migration maps the fixture's `review_owner` value to
+this account.
 
 The site is served at <https://gnwt-navigator.ddev.site>.
 
