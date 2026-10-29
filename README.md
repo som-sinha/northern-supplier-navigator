@@ -34,8 +34,8 @@ and never asks visitors for personal, banking, bid or invoice information.
 You need Docker Desktop (or OrbStack) and [DDEV](https://ddev.com).
 
 ```bash
-git clone https://github.com/som-sinha/northern-supply-navigator.git
-cd northern-supply-navigator
+git clone https://github.com/som-sinha/northern-supplier-navigator.git
+cd northern-supplier-navigator
 ddev start
 ddev composer install
 ddev drush site:install --existing-config -y
