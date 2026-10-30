@@ -1,0 +1,33 @@
+id: nsn_organizations
+label: 'Organizations'
+migration_group: nsn
+
+source:
+  plugin: csv
+  path: '../migrations/demo-data/organizations.csv'
+  ids: [org_id] #key value; stops duplicates
+
+process:
+  vid:
+    plugin: default_value
+    default_value: 'organization'  # which vocabulary to use for the taxonomy term
+  name: name
+  field_government: 
+    plugin: static_map
+    source: government
+    map:
+      GNWT: gnwt
+      'City of Yellowknife': city_yk
+  parent:
+  -
+    plugin: skip_on_empty
+    method: process
+    source: parent_id
+  -
+    plugin: migration_lookup
+    migration: nsn_organizations
+
+  field_website: website
+
+destination:
+  plugin: entity:taxonomy_term

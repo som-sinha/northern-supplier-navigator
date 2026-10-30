@@ -22,6 +22,9 @@
         "drupal/core-recommended": "^11.4",
         "drupal/gin": "^5.0",
         "drupal/gin_toolbar": "^3.0",
+        "drupal/migrate_plus": "^6.0",
+        "drupal/migrate_source_csv": "^3.8",
+        "drupal/migrate_tools": "^6.1",
         "drupal/paragraphs": "^1.23",
         "drush/drush": "^13.8"
     },

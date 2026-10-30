@@ -1,0 +1,18 @@
+id: nsn_journeys
+label: 'Journeys'
+migration_group: nsn
+source:
+  plugin: csv
+  path: '../migrations/demo-data/journeys.csv'
+  ids: [journey_id] #key value; stops duplicates
+
+process:
+  vid:
+    plugin: default_value
+    default_value: 'journey'  # which vocabulary to use for the taxonomy term
+  name: name
+  description: description
+  weight: weight
+
+destination:
+  plugin: entity:taxonomy_term

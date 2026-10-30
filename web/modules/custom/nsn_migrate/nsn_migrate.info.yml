@@ -1,0 +1,11 @@
+name: 'Navigator migrations'
+type: module
+description: 'Imports the demo data CSV files into the site.'
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - migrate_plus:migrate_plus
+  - migrate_source_csv:migrate_source_csv
+  - migrate_tools:migrate_tools
+  - paragraphs:paragraphs
+  
