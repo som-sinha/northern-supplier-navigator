@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.service_guide.field_audience
     - field.field.node.service_guide.field_checklist
     - field.field.node.service_guide.field_contact_email
     - field.field.node.service_guide.field_contact_phone
@@ -36,16 +35,6 @@ content:
     weight: 2
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_audience:
-    type: entity_reference_autocomplete
-    weight: 6
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_checklist:
     type: paragraphs

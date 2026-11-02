@@ -1,8 +1,13 @@
 # Demo data
 
-These spreadsheet files (CSV) hold the guides shown on the site. They were compiled
-by hand on 2026-10-25 from the public pages listed under [Sources](#sources), and
-they contain no tenders, payments, supplier accounts or personal information.
+These spreadsheet files (CSV) hold the guides shown on the site. They were built on
+2026-10-25 from the public pages listed under [Sources](#sources), and they contain
+no tenders, payments, supplier accounts or personal information.
+
+> **AI use:** An AI assistant (Claude, by Anthropic) collected the information from
+> the source pages, compiled it into these files and organized it into categories.
+> The checks below were also done with the assistant. Treat the official pages as
+> the final word, and check any fact against its source before relying on it.
 
 The site loads them through Drupal's import tool (the "Migrate API"), the same way a
 real project would move content from an old website into a new one. To make that
@@ -41,7 +46,7 @@ updates existing pages instead of creating duplicates.
 | `source_id` | (kept by the import tool) | Used to match the row to its page on later imports |
 | `title` | Title | Copied |
 | `category` | Goal (`field_journey`) | Old labels are translated: "Procurement Help" and "Training" both become "Find procurement support" |
-| `audience` | Audience (`field_audience`) | Matched to an existing label, or a new one is created |
+| `audience` | (not imported) | Left out on purpose. See [Columns that are not imported](#columns-that-are-not-imported) |
 | `summary` | Summary (`field_summary`) | Copied |
 | `steps` | Steps (`field_steps`) | Split at each `\|` into separate steps |
 | `official_url` | Official link (`field_official_link`) | Copied; must start with `https://` |
@@ -55,6 +60,18 @@ updates existing pages instead of creating duplicates.
 | `next_review` | Next review (`field_next_review`) | Copied as a date; editors only |
 | `related_ids` | Related guides (`field_related_guides`) | Split at each `\|` and linked to those guides |
 | `notes` | Editor notes (`field_editor_notes`) | Copied; never shown to the public |
+
+### Columns that are not imported
+
+`audience` stays in `guides.csv` because it is part of the old export, but it is not
+brought into the new site. Its six labels ("Businesses", "NWT businesses", "Vendors",
+"Suppliers" and others) overlap, and they mostly repeat the goal: every "Suppliers"
+guide is already under "Ask about a payment". A second filter that gives the same
+results would only confuse visitors. The one rule that matters, that Business
+Incentive Policy support is only for NWT businesses, is already an eligibility item
+in GDE-004's checklist.
+
+### Checklist items
 
 In `checklist_items.csv`, each row belongs to the guide named in `guide_id`, in the
 order given by `sequence`. `kind` says whether the item is something to **prepare**

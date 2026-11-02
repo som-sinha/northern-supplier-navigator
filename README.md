@@ -6,8 +6,10 @@ a payment, and tells them what to prepare. It links to the official government p
 and never asks visitors for personal, banking, bid or invoice information.
 
 > **Disclaimer:** All data on this site was compiled from publicly available GNWT and
-> City of Yellowknife information. It may contain errors and is for demonstration
-> only. This is an independent portfolio project, not an official GNWT service.
+> City of Yellowknife information, with the help of an AI assistant that collected,
+> compiled and organized it (see [`migrations/demo-data/`](migrations/demo-data/README.md)).
+> It may contain errors and is for demonstration only. This is an independent
+> portfolio project, not an official GNWT service.
 
 ## Progress
 

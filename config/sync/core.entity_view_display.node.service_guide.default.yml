@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.service_guide.field_audience
     - field.field.node.service_guide.field_checklist
     - field.field.node.service_guide.field_contact_email
     - field.field.node.service_guide.field_contact_phone
@@ -31,14 +30,6 @@ targetEntityType: node
 bundle: service_guide
 mode: default
 content:
-  field_audience:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_checklist:
     type: entity_reference_revisions_entity_view
     label: above
