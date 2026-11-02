@@ -1,0 +1,121 @@
+id: nsn_guides
+label: 'Guides'
+migration_group: nsn
+
+source:
+  plugin: csv
+  path: '../migrations/demo-data/guides.csv'
+  ids: [source_id] #key value; stops duplicates
+
+process:
+  title: title
+  langcode: language
+  status:
+    plugin: default_value
+    default_value: 1
+  field_summary: summary
+  field_steps:
+    plugin: explode # one cell becomes a list of steps
+    source: steps
+    delimiter: '|'
+
+  # The old system's categories, translated to the new journeys.
+  # "Procurement Help" and "Training" are merged into one journey.
+  field_journey:
+    - plugin: static_map
+      source: category
+      map:
+        Bidders: become-bidder
+        'Procurement Help': find-support
+        Training: find-support
+        Payments: payment-enquiry
+        'Other Govt': other-government
+    - plugin: migration_lookup
+      migration: nsn_journeys
+      no_stub: true
+  field_organization:
+    plugin: migration_lookup
+    migration: nsn_organizations
+    source: org_id
+    no_stub: true
+
+  field_official_link/uri: official_url
+  field_contact_email:
+    plugin: skip_on_empty # some guides have no email address
+    method: process
+    source: contact_email
+  field_contact_phone:
+    plugin: skip_on_empty
+    method: process
+    source: contact_phone
+
+  # Review details, shown to editors only.
+  field_source_url/uri: source_url
+  field_last_reviewed: source_checked
+  field_next_review: next_review
+  field_editor_notes: notes
+  field_review_owner:
+    plugin: entity_lookup # finds the account by its user name
+    source: review_owner
+    entity_type: user
+    value_key: name
+    access_check: false
+  uid: '@field_review_owner'
+
+  # The CSVs link each item to its guide. Drupal stores the list on the
+  # guide, so CsvChildren finds the guide's rows in the other file.
+  field_checklist:
+    - plugin: nsn_csv_children
+      source: source_id
+      path: '../migrations/demo-data/checklist_items.csv'
+      match_column: guide_id
+      sort_column: sequence
+    - plugin: sub_process
+      process:
+        ids:
+          plugin: migration_lookup
+          migration: nsn_checklist_items
+          source: item_id
+          no_stub: true
+        target_id:
+          plugin: extract
+          source: '@ids'
+          index: [0]
+        target_revision_id:
+          plugin: extract
+          source: '@ids'
+          index: [1]
+  field_resources:
+    - plugin: nsn_csv_children
+      source: source_id
+      path: '../migrations/demo-data/resources.csv'
+      match_column: guide_id
+    - plugin: sub_process
+      process:
+        ids:
+          plugin: migration_lookup
+          migration: nsn_resources
+          source: resource_id
+          no_stub: true
+        target_id:
+          plugin: extract
+          source: '@ids'
+          index: [0]
+        target_revision_id:
+          plugin: extract
+          source: '@ids'
+          index: [1]
+
+  # audience is left out on purpose (see migrations/demo-data/README.md).
+  # related_ids is filled in by nsn_guides_related, after every guide exists.
+
+destination:
+  plugin: entity:node
+  default_bundle: service_guide
+
+migration_dependencies:
+  required:
+    - nsn_journeys
+    - nsn_organizations
+    - nsn_checklist_items
+    - nsn_resources

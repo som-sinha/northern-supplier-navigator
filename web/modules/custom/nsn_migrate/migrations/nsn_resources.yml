@@ -1,0 +1,34 @@
+id: nsn_resources
+label: 'Resources'
+migration_group: nsn
+
+source:
+  plugin: csv
+  path: '../migrations/demo-data/resources.csv'
+  ids: [resource_id] #key value; stops duplicates
+
+process:
+  field_resource_link/uri: url
+  field_resource_link/title: title
+  field_format:
+    plugin: static_map
+    source: format
+    map:
+      PDF: pdf
+      HTML: html
+  field_resource_language:
+    plugin: explode # "en|fr" becomes two languages
+    source: language
+    delimiter: '|'
+  field_size_bytes:
+    plugin: skip_on_empty # sizes are blank until they are checked
+    method: process
+    source: size_bytes
+  field_size_checked:
+    plugin: skip_on_empty
+    method: process
+    source: size_checked
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: resource

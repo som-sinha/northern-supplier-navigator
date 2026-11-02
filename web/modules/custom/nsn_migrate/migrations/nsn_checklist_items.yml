@@ -1,0 +1,19 @@
+id: nsn_checklist_items
+label: 'Checklist Items'
+migration_group: nsn
+
+source:
+  plugin: csv
+  path: '../migrations/demo-data/checklist_items.csv'
+  ids: [item_id] #key value; stops duplicates
+
+process:
+  field_kind: kind
+  field_required: required
+  field_action: action
+  field_note: note
+
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: checklist_item

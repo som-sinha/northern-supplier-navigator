@@ -1,0 +1,37 @@
+id: nsn_guides_related
+label: 'Related guides'
+migration_group: nsn
+
+# A second pass over guides.csv. A guide can only link to guides that already
+# exist, so this runs after nsn_guides and only fills in field_related_guides.
+source:
+  plugin: csv
+  path: '../migrations/demo-data/guides.csv'
+  ids: [source_id]
+
+process:
+  nid:
+    plugin: migration_lookup # the guide page nsn_guides created for this row
+    migration: nsn_guides
+    source: source_id
+    no_stub: true
+  field_related_guides:
+    - plugin: skip_on_empty
+      method: process
+      source: related_ids
+    - plugin: explode
+      delimiter: '|'
+    - plugin: migration_lookup
+      migration: nsn_guides
+      no_stub: true
+
+destination:
+  plugin: entity:node
+  default_bundle: service_guide
+  # Change only this field and leave the rest of the guide alone.
+  overwrite_properties:
+    - field_related_guides
+
+migration_dependencies:
+  required:
+    - nsn_guides
