@@ -1,0 +1,46 @@
+uuid: dd45fa68-eca4-4f56-a347-ce1ca024a1f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.service_guide
+    - taxonomy.vocabulary.tags
+    - workflows.workflow.guide_review
+  module:
+    - content_moderation
+    - contextual
+    - file
+    - navigation
+    - node
+    - path
+    - system
+    - taxonomy
+id: publisher
+label: Publisher
+weight: 4
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access navigation'
+  - 'administer url aliases'
+  - 'create service_guide content'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete own files'
+  - 'edit any service_guide content'
+  - 'edit terms in tags'
+  - 'revert all revisions'
+  - 'use guide_review transition archive'
+  - 'use guide_review transition create_new_draft'
+  - 'use guide_review transition publish'
+  - 'use guide_review transition restore'
+  - 'use guide_review transition send_back'
+  - 'use guide_review transition submit_for_review'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view the administration theme'

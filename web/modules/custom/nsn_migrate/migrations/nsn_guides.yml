@@ -10,9 +10,11 @@ source:
 process:
   title: title
   langcode: language
-  status:
+  # The demo data counts as already approved. Without this, the guide review
+  # workflow would import every guide as an unpublished draft.
+  moderation_state:
     plugin: default_value
-    default_value: 1
+    default_value: published
   field_summary: summary
   field_steps:
     plugin: explode # one cell becomes a list of steps

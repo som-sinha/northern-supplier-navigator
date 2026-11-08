@@ -3,8 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.service_guide
     - taxonomy.vocabulary.tags
+    - workflows.workflow.guide_review
   module:
+    - content_moderation
     - contextual
     - file
     - navigation
@@ -25,11 +28,16 @@ permissions:
   - 'access files overview'
   - 'access navigation'
   - 'administer url aliases'
+  - 'create service_guide content'
   - 'create terms in tags'
   - 'create url aliases'
   - 'delete own files'
+  - 'edit any service_guide content'
   - 'edit terms in tags'
-  - 'revert all revisions'
+  - 'use guide_review transition create_new_draft'
+  - 'use guide_review transition submit_for_review'
   - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
   - 'view own unpublished content'
   - 'view the administration theme'

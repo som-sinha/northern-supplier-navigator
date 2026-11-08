@@ -1,0 +1,77 @@
+uuid: fff5e423-ad37-422c-9174-5b21b9fcb71a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.service_guide
+  module:
+    - content_moderation
+id: guide_review
+label: 'Guide review'
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archived
+      weight: 3
+      published: false
+      default_revision: true
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 2
+      published: true
+      default_revision: true
+    review:
+      label: 'In review'
+      weight: 1
+      published: false
+      default_revision: false
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - published
+      to: archived
+      weight: 4
+    create_new_draft:
+      label: 'Save as draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Publish
+      from:
+        - review
+        - published
+      to: published
+      weight: 3
+    restore:
+      label: 'Restore to draft'
+      from:
+        - archived
+      to: draft
+      weight: 5
+    send_back:
+      label: 'Send back to draft'
+      from:
+        - review
+      to: draft
+      weight: 2
+    submit_for_review:
+      label: 'Submit for review'
+      from:
+        - draft
+        - review
+      to: review
+      weight: 1
+  entity_types:
+    node:
+      - service_guide
+  default_moderation_state: draft

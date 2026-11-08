@@ -19,8 +19,9 @@ and never asks visitors for personal, banking, bid or invoice information.
 | Site settings saved in Git (`config/sync/`) | Done |
 | Guide page structure (fields, categories, checklists) | Done |
 | Demo data: 11 guides from public GNWT pages (`migrations/demo-data/`) | Done |
-| Importing the demo data into the site | In progress |
-| "What do you want to do?" page, editor approval steps | Planned |
+| Importing the demo data into the site | Done |
+| Editor approval steps: editors draft, publishers approve | Done |
+| "What do you want to do?" page | Planned |
 | Dashboard showing guides due for review | Planned |
 | Public test server, backup and restore test | Planned |
 
@@ -43,14 +44,34 @@ ddev composer install
 ddev drush site:install --existing-config -y
 ddev drush user:create portfolio-editor --mail=portfolio-editor@example.com --password="$(openssl rand -base64 24)"
 ddev drush user:role:add content_editor portfolio-editor
+ddev drush user:create portfolio-publisher --mail=portfolio-publisher@example.com --password="$(openssl rand -base64 24)"
+ddev drush user:role:add publisher portfolio-publisher
+ddev drush migrate:import --group=nsn    # loads the demo data
 ddev drush uli    # prints a one-time admin login link
 ```
 
-The site opens at <https://gnwt-navigator.ddev.site>.
+The site opens at <https://gnwt-navigator.ddev.site>. To sign in as one of the two
+demo accounts, run `ddev drush uli --name=portfolio-editor` (or `portfolio-publisher`).
 
-User accounts are stored in the database, not in Git, so the `portfolio-editor`
-account has to be created on each new copy of the site. Every guide in the demo data
+User accounts are stored in the database, not in Git, so the two demo accounts have
+to be created on each new copy of the site. Create them before importing, because the
+import looks up `portfolio-editor` by name. Every guide in the demo data
 names this account as the person responsible for reviewing it.
+
+## How publishing works
+
+Guides go through a review before visitors see a change:
+
+| Step | Who can do it |
+|---|---|
+| Save a change as a draft | Editors and publishers |
+| Submit a draft for review | Editors and publishers |
+| Publish, or send back to draft | Publishers only |
+| Archive a guide, or restore it to draft | Publishers only |
+
+While a change is a draft or in review, visitors keep seeing the last published
+version. They cannot open drafts or the revision history. The demo data is imported
+as already published.
 
 ## What's in this repository
 
