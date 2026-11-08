@@ -12,7 +12,7 @@ id: node.service_guide.field_checklist
 field_name: field_checklist
 entity_type: node
 bundle: service_guide
-label: checklist
+label: 'What to prepare'
 description: ''
 required: false
 translatable: false

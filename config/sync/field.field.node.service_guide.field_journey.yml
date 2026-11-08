@@ -10,7 +10,7 @@ id: node.service_guide.field_journey
 field_name: field_journey
 entity_type: node
 bundle: service_guide
-label: journey
+label: Journey
 description: ''
 required: true
 translatable: false

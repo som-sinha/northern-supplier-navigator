@@ -11,7 +11,7 @@ id: paragraph.resource.field_format
 field_name: field_format
 entity_type: paragraph
 bundle: resource
-label: format
+label: Format
 description: ''
 required: false
 translatable: false

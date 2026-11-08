@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * One "What to prepare" item: the item, a tag when the source says it is
+ * required or an eligibility rule, and an optional note.
+ */
+#}
+<div{{ attributes.addClass('checklist-item') }}>
+  <span class="checklist-item__action">{{ paragraph.field_action.value }}</span>
+  {% if paragraph.field_kind.value == 'eligibility' %}
+    <span class="tag">Eligibility rule</span>
+  {% endif %}
+  {% if paragraph.field_required.value == 'yes' %}
+    <span class="tag tag--required">Required</span>
+  {% endif %}
+  {% if paragraph.field_note.value %}
+    <p class="checklist-item__note">{{ paragraph.field_note.value }}</p>
+  {% endif %}
+</div>

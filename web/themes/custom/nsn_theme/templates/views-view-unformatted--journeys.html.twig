@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * One journey on the home page: its name, then its guides as a list.
+ */
+#}
+<section class="journey">
+  {% if title %}
+    <h2 class="journey__title">{{ title }}</h2>
+  {% endif %}
+  <ul class="journey__guides">
+    {% for row in rows %}
+      <li{{ row.attributes.addClass('journey__guide') }}>{{ row.content }}</li>
+    {% endfor %}
+  </ul>
+</section>

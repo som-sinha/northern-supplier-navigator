@@ -9,7 +9,7 @@ id: paragraph.resource.field_size_bytes
 field_name: field_size_bytes
 entity_type: paragraph
 bundle: resource
-label: 'size bytes'
+label: 'File size (bytes)'
 description: ''
 required: false
 translatable: false

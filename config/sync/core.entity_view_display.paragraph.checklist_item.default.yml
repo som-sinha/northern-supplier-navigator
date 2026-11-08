@@ -8,8 +8,6 @@ dependencies:
     - field.field.paragraph.checklist_item.field_note
     - field.field.paragraph.checklist_item.field_required
     - paragraphs.paragraphs_type.checklist_item
-  module:
-    - options
 id: paragraph.checklist_item.default
 targetEntityType: paragraph
 bundle: checklist_item
@@ -17,7 +15,7 @@ mode: default
 content:
   field_action:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
       link_rel: canonical
@@ -26,17 +24,11 @@ content:
     region: content
   field_note:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
-    region: content
-  field_required:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
 hidden:
   field_kind: true
+  field_required: true

@@ -9,7 +9,7 @@ id: paragraph.checklist_item.field_note
 field_name: field_note
 entity_type: paragraph
 bundle: checklist_item
-label: note
+label: Note
 description: ''
 required: false
 translatable: false

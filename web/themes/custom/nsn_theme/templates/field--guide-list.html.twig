@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * A guide field shown as a section: heading plus a list.
+ *
+ * Steps are numbered because their order matters; other lists use bullets.
+ */
+#}
+{% set tag = field_name == 'field_steps' ? 'ol' : 'ul' %}
+<section{{ attributes.addClass('guide-section', 'guide-section--' ~ field_name|clean_class) }}>
+  <h2{{ title_attributes.addClass('guide-section__title') }}>{{ label }}</h2>
+  <{{ tag }} class="guide-list">
+    {% for item in items %}
+      <li{{ item.attributes.addClass('guide-list__item') }}>{{ item.content }}</li>
+    {% endfor %}
+  </{{ tag }}>
+</section>

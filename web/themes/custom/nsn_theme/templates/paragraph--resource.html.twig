@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * One official form or guide: the link, then its format and languages.
+ */
+#}
+{% set languages = {'en': 'English', 'fr': 'French'} %}
+<div{{ attributes.addClass('resource') }}>
+  {{ content.field_resource_link.0 }}
+  <span class="resource__meta">
+    ({{ paragraph.field_format.value|upper }}{% for item in paragraph.field_resource_language %}{{ loop.first ? ', ' : ' and ' }}{{ languages[item.value] ?? item.value }}{% endfor %})
+  </span>
+</div>

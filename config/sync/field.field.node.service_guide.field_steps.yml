@@ -9,7 +9,7 @@ id: node.service_guide.field_steps
 field_name: field_steps
 entity_type: node
 bundle: service_guide
-label: steps
+label: 'What to do'
 description: ''
 required: false
 translatable: false

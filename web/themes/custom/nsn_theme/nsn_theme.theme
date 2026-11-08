@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Theme functions for the Navigator theme.
+ */
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ *
+ * Shows the guide's list fields as real lists under a section heading, using
+ * templates/field--guide-list.html.twig.
+ */
+function nsn_theme_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  $lists = ['field_steps', 'field_checklist', 'field_resources', 'field_related_guides'];
+  if (in_array($variables['element']['#field_name'], $lists, TRUE)) {
+    $suggestions[] = 'field__guide_list';
+  }
+}

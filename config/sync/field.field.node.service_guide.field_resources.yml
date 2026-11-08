@@ -12,7 +12,7 @@ id: node.service_guide.field_resources
 field_name: field_resources
 entity_type: node
 bundle: service_guide
-label: resources
+label: 'Forms and guides'
 description: ''
 required: false
 translatable: false

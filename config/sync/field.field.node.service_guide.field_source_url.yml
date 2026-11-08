@@ -11,7 +11,7 @@ id: node.service_guide.field_source_url
 field_name: field_source_url
 entity_type: node
 bundle: service_guide
-label: 'source url'
+label: 'Source page'
 description: ''
 required: true
 translatable: false

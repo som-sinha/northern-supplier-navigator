@@ -9,7 +9,7 @@ id: node.service_guide.field_editor_notes
 field_name: field_editor_notes
 entity_type: node
 bundle: service_guide
-label: 'editor notes'
+label: 'Editor notes'
 description: ''
 required: false
 translatable: false

@@ -9,7 +9,7 @@ id: node.service_guide.field_review_owner
 field_name: field_review_owner
 entity_type: node
 bundle: service_guide
-label: 'review owner'
+label: 'Review owner'
 description: ''
 required: true
 translatable: false

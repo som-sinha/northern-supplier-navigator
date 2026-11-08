@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * The guide's official page, shown as one clear button.
+ */
+#}
+{% for item in items %}
+  <p{{ attributes.addClass('guide-official') }}>
+    <a class="button button--primary" href="{{ item.content['#url'].toString() }}">Go to the official page</a>
+  </p>
+{% endfor %}

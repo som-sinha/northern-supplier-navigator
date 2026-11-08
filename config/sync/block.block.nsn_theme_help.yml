@@ -1,0 +1,22 @@
+uuid: f36e1729-40e4-43c7-b32f-76c467b7d217
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - nsn_theme
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: nsn_theme_help
+theme: nsn_theme
+region: content_above
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

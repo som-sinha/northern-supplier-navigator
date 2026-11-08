@@ -1,0 +1,137 @@
+/**
+ * Navigator theme: tighter spacing and list layouts on top of Olivero.
+ * Uses Olivero's spacing (--sp*) and colour variables.
+ */
+
+/* Less space above the page title, and a smaller title on wide screens. */
+.main-content__container {
+  @media (min-width: 43.75rem) {
+    padding-block-start: var(--sp2);
+  }
+}
+
+.page-title {
+  margin-block: var(--sp1);
+
+  @media (min-width: 43.75rem) {
+    font-size: 2.75rem;
+    line-height: 1.15;
+  }
+}
+
+/* Olivero hyphenates long words ("per-sonal"); plain wrapping reads better. */
+.main-content {
+  hyphens: manual;
+}
+
+/* Home page: "What do you want to do?" */
+.view-journeys .view-header {
+  max-width: 42rem;
+  margin-block-end: var(--sp2);
+}
+
+.journey {
+  margin-block-end: var(--sp2);
+}
+
+.journey__title {
+  margin-block: 0 var(--sp0-5);
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.journey__guides {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: 1px solid var(--color--gray-90);
+}
+
+.journey__guide {
+  padding-block: var(--sp0-75);
+  border-block-end: 1px solid var(--color--gray-90);
+}
+
+.journey__guide h3 {
+  margin: 0 0 var(--sp0-25);
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.journey__guide p {
+  margin: 0;
+}
+
+/* Guide page */
+.node--type-service-guide .field--name-field-summary {
+  margin-block-end: var(--sp1);
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.guide-official {
+  margin-block: var(--sp1) var(--sp2);
+}
+
+.guide-section {
+  margin-block: var(--sp2) 0;
+}
+
+.guide-section__title {
+  margin-block: 0 var(--sp0-5);
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+.guide-list {
+  margin: 0;
+  padding-inline-start: var(--sp1-5);
+}
+
+.guide-list__item {
+  margin-block: var(--sp0-25);
+}
+
+.checklist-item__note {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color--gray-45);
+}
+
+.tag {
+  display: inline-block;
+  margin-inline-start: var(--sp0-25);
+  padding: 0 0.4em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.6;
+  vertical-align: middle;
+  color: var(--color--gray-20);
+  border: 1px solid var(--color--gray-70);
+  border-radius: 3px;
+}
+
+.tag--required {
+  color: var(--color--primary-30);
+  border-color: var(--color--primary-40);
+}
+
+.resource__meta {
+  font-size: 0.9375rem;
+  color: var(--color--gray-45);
+}
+
+/* Contact details and "Last checked": compact label/value lines. */
+.node--type-service-guide .field--label-inline {
+  margin-block: var(--sp0-25);
+}
+
+.node--type-service-guide .field--name-field-organization {
+  margin-block-start: var(--sp2);
+}
+
+.node--type-service-guide .field--name-field-last-reviewed {
+  margin-block-start: var(--sp2);
+  font-size: 0.9375rem;
+  color: var(--color--gray-45);
+}

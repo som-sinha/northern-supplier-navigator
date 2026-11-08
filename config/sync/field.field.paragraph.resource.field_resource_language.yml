@@ -11,7 +11,7 @@ id: paragraph.resource.field_resource_language
 field_name: field_resource_language
 entity_type: paragraph
 bundle: resource
-label: resource_language
+label: Language
 description: ''
 required: false
 translatable: false

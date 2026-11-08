@@ -1,0 +1,22 @@
+uuid: 67854549-6ddc-4ad5-84a4-7c635a7bbbb6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nsn_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: nsn_theme_content
+theme: nsn_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

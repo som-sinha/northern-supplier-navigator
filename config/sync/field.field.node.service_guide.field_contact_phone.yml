@@ -11,7 +11,7 @@ id: node.service_guide.field_contact_phone
 field_name: field_contact_phone
 entity_type: node
 bundle: service_guide
-label: 'contact phone'
+label: Phone
 description: ''
 required: false
 translatable: false

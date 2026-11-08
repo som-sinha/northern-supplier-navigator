@@ -9,7 +9,7 @@ id: node.service_guide.field_summary
 field_name: field_summary
 entity_type: node
 bundle: service_guide
-label: summary
+label: Summary
 description: ''
 required: true
 translatable: false

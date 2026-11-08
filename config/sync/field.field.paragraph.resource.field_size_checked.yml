@@ -11,7 +11,7 @@ id: paragraph.resource.field_size_checked
 field_name: field_size_checked
 entity_type: paragraph
 bundle: resource
-label: 'size checked'
+label: 'File size checked'
 description: ''
 required: false
 translatable: false

@@ -46,7 +46,7 @@ display:
           entity_field: title
           plugin_id: field
           label: ''
-          element_type: h4
+          element_type: h3
           type: string
           settings:
             link_to_entity: true

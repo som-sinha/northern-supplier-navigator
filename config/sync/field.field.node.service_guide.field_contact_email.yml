@@ -9,7 +9,7 @@ id: node.service_guide.field_contact_email
 field_name: field_contact_email
 entity_type: node
 bundle: service_guide
-label: 'contact email'
+label: Email
 description: ''
 required: false
 translatable: false

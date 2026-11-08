@@ -11,7 +11,7 @@ id: node.service_guide.field_last_reviewed
 field_name: field_last_reviewed
 entity_type: node
 bundle: service_guide
-label: 'last reviewed'
+label: 'Last checked'
 description: ''
 required: true
 translatable: false

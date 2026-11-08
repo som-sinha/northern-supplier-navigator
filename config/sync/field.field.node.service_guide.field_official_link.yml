@@ -11,7 +11,7 @@ id: node.service_guide.field_official_link
 field_name: field_official_link
 entity_type: node
 bundle: service_guide
-label: 'official link'
+label: 'Official page'
 description: ''
 required: true
 translatable: false

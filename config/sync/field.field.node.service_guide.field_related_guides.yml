@@ -9,7 +9,7 @@ id: node.service_guide.field_related_guides
 field_name: field_related_guides
 entity_type: node
 bundle: service_guide
-label: 'related guides'
+label: 'Related guides'
 description: ''
 required: false
 translatable: false

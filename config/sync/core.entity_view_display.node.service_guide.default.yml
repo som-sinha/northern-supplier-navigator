@@ -23,13 +23,17 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - link
-    - telephone
     - user
 id: node.service_guide.default
 targetEntityType: node
 bundle: service_guide
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_checklist:
     type: entity_reference_revisions_entity_view
     label: above
@@ -37,59 +41,52 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 13
     region: content
   field_contact_email:
-    type: basic_string
-    label: above
+    type: email_mailto
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 16
     region: content
   field_contact_phone:
-    type: telephone_link
-    label: above
+    type: string
+    label: inline
     settings:
-      title: ''
+      link_to_entity: false
+      link_rel: canonical
     third_party_settings: {  }
-    weight: 10
-    region: content
-  field_journey:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
+    weight: 17
     region: content
   field_last_reviewed:
-    type: datetime_default
-    label: above
+    type: datetime_custom
+    label: inline
     settings:
       timezone_override: ''
-      format_type: medium
+      date_format: 'j F Y'
     third_party_settings: {  }
-    weight: 11
+    weight: 19
     region: content
   field_official_link:
     type: link
-    label: above
+    label: hidden
     settings:
-      trim_length: 80
+      trim_length: null
       url_only: false
       url_plain: false
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 7
+    weight: 11
     region: content
   field_organization:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
-    weight: 8
+    weight: 15
     region: content
   field_related_guides:
     type: entity_reference_label
@@ -97,7 +94,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 18
     region: content
   field_resources:
     type: entity_reference_revisions_entity_view
@@ -106,7 +103,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 6
+    weight: 14
     region: content
   field_steps:
     type: string
@@ -115,22 +112,19 @@ content:
       link_to_entity: false
       link_rel: canonical
     third_party_settings: {  }
-    weight: 4
+    weight: 12
     region: content
   field_summary:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 3
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
+    weight: 10
     region: content
 hidden:
   field_editor_notes: true
+  field_journey: true
   field_next_review: true
   field_review_owner: true
   field_source_url: true
+  links: true

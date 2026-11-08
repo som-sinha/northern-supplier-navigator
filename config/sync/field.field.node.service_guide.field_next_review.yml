@@ -11,7 +11,7 @@ id: node.service_guide.field_next_review
 field_name: field_next_review
 entity_type: node
 bundle: service_guide
-label: 'next review'
+label: 'Next review'
 description: ''
 required: true
 translatable: false

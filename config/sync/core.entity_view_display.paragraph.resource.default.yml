@@ -19,23 +19,23 @@ mode: default
 content:
   field_format:
     type: list_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
   field_resource_language:
     type: list_default
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 2
     region: content
   field_resource_link:
     type: link
-    label: above
+    label: hidden
     settings:
-      trim_length: 80
+      trim_length: null
       url_only: false
       url_plain: false
       rel: ''
@@ -43,14 +43,6 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_size_bytes:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
+  field_size_bytes: true
   field_size_checked: true

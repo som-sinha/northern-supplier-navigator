@@ -11,7 +11,7 @@ id: paragraph.checklist_item.field_kind
 field_name: field_kind
 entity_type: paragraph
 bundle: checklist_item
-label: kind
+label: Kind
 description: ''
 required: false
 translatable: false
