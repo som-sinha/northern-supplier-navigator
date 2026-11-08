@@ -10,7 +10,7 @@ dependencies:
     - taxonomy
     - user
 id: journeys
-label: 'What do you want to do?'
+label: 'Selling to the GNWT: where to start'
 module: views
 description: 'Public start page: every published guide, grouped by journey.'
 tag: ''
@@ -23,7 +23,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'What do you want to do?'
+      title: 'Selling to the GNWT: where to start'
       fields:
         name:
           id: name
@@ -141,7 +141,7 @@ display:
           field: area_text_custom
           plugin_id: text_custom
           empty: false
-          content: 'Pick the goal that matches what you need. Each guide explains what to prepare and links to the official government page where you do it. This site never asks for your personal, banking or invoice details.'
+          content: 'Registering to bid, getting procurement help, or checking on a payment? Pick your goal below to see what to prepare and where to go on the official site. This site never asks for your personal, banking or invoice details.'
       display_extenders: {  }
     cache_metadata:
       contexts:
