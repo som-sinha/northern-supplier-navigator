@@ -1,0 +1,310 @@
+uuid: 41bdc8af-6d82-4296-aef9-9eaf404c71e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_reviewed
+    - field.storage.node.field_next_review
+    - field.storage.node.field_source_url
+    - node.type.service_guide
+    - workflows.workflow.guide_review
+  module:
+    - content_moderation
+    - datetime
+    - link
+    - node
+    - taxonomy
+    - user
+id: guide_review
+label: 'Guide review'
+module: views
+description: 'Editor dashboard: every guide with its source, owner, review dates and whether a review is overdue.'
+tag: ''
+base_table: node_field_revision
+base_field: vid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Guide review'
+      fields:
+        title:
+          id: title
+          table: node_field_revision
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: Guide
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_journey
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: field
+          label: Journey
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+        name_1:
+          id: name_1
+          table: users_field_data
+          field: name
+          relationship: field_review_owner
+          entity_type: user
+          entity_field: name
+          plugin_id: field
+          label: Owner
+          type: user_name
+          settings:
+            link_to_entity: false
+        field_last_reviewed:
+          id: field_last_reviewed
+          table: node_revision__field_last_reviewed
+          field: field_last_reviewed__revision_id
+          plugin_id: field
+          label: 'Last reviewed'
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: Y-m-d
+        field_next_review:
+          id: field_next_review
+          table: node_revision__field_next_review
+          field: field_next_review__revision_id
+          plugin_id: field
+          label: 'Next review'
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: Y-m-d
+        review_status:
+          id: review_status
+          table: views
+          field: nothing
+          plugin_id: custom
+          label: 'Review status'
+          alter:
+            alter_text: true
+            text: "{% set next = field_next_review|render|striptags|trim %}{% if next and next < 'now'|date('Y-m-d') %}<strong>Overdue</strong>{% elseif next and next <= 'now'|date_modify('+30 days')|date('Y-m-d') %}Due within 30 days{% else %}Up to date{% endif %}"
+          hide_alter_empty: false
+        moderation_state:
+          id: moderation_state
+          table: node_field_revision
+          field: moderation_state
+          entity_type: node
+          plugin_id: field
+          label: 'Latest version'
+          type: content_moderation_state
+        field_source_url:
+          id: field_source_url
+          table: node_revision__field_source_url
+          field: field_source_url__revision_id
+          plugin_id: field
+          label: 'Source page'
+          type: link
+          settings:
+            trim_length: 45
+            url_only: false
+            url_plain: false
+            rel: '0'
+            target: '0'
+        operations:
+          id: operations
+          table: node
+          field: operations
+          entity_type: node
+          plugin_id: entity_operations
+          label: ''
+          destination: true
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Filter
+          reset_button: true
+          reset_button_label: Reset
+      access:
+        type: perm
+        options:
+          perm: 'view latest version'
+      cache:
+        type: time
+        options:
+          results_lifespan: 3600
+          results_lifespan_custom: 0
+          output_lifespan: 3600
+          output_lifespan_custom: 0
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'No guides match these filters.'
+      sorts:
+        field_next_review_value:
+          id: field_next_review_value
+          table: node_revision__field_next_review
+          field: field_next_review_value
+          plugin_id: datetime
+          order: ASC
+          granularity: day
+        title:
+          id: title
+          table: node_field_revision
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          order: ASC
+      filters:
+        latest_translation_affected_revision:
+          id: latest_translation_affected_revision
+          table: node_revision
+          field: latest_translation_affected_revision
+          entity_type: node
+          plugin_id: latest_translation_affected_revision
+          operator: '='
+          value: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: nid
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            service_guide: service_guide
+          group: 1
+        moderation_state:
+          id: moderation_state
+          table: node_field_revision
+          field: moderation_state
+          entity_type: node
+          plugin_id: moderation_state_filter
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: moderation_state_op
+            label: 'Latest version'
+            identifier: moderation_state
+            remember: false
+            multiple: false
+        field_journey_target_id:
+          id: field_journey_target_id
+          table: node_revision__field_journey
+          field: field_journey_target_id
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_journey_target_id_op
+            label: Journey
+            identifier: journey
+            remember: false
+            multiple: false
+          vid: journey
+          type: select
+          hierarchy: false
+          limit: true
+      style:
+        type: table
+        options:
+          columns:
+            title: title
+            name: name
+            name_1: name_1
+            field_last_reviewed: field_last_reviewed
+            field_next_review: field_next_review
+            review_status: review_status
+            moderation_state: moderation_state
+            field_source_url: field_source_url
+            operations: operations
+          default: field_next_review
+          info:
+            title:
+              sortable: true
+              default_sort_order: asc
+            name:
+              sortable: true
+              default_sort_order: asc
+            field_last_reviewed:
+              sortable: true
+              default_sort_order: asc
+            field_next_review:
+              sortable: true
+              default_sort_order: asc
+          sticky: true
+          empty_table: false
+          caption: 'Guides and their review dates'
+      row:
+        type: fields
+      relationships:
+        nid:
+          id: nid
+          table: node_field_revision
+          field: nid
+          admin_label: 'Get the guide from its revision'
+          entity_type: node
+          entity_field: nid
+          plugin_id: standard
+          required: true
+        field_journey:
+          id: field_journey
+          table: node_revision__field_journey
+          field: field_journey
+          plugin_id: standard
+          required: false
+        field_review_owner:
+          id: field_review_owner
+          table: node_revision__field_review_owner
+          field: field_review_owner
+          plugin_id: standard
+          required: false
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: false
+          content: 'Guides due for review come first. Check each one against its source page, update it as a draft, then submit it for review.'
+      display_extenders: {  }
+  page:
+    id: page
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: admin/content/guide-review
+      menu:
+        type: tab
+        title: 'Guide review'
+        description: 'Guides due for review'
+        weight: 5
+        menu_name: admin
+        context: ''

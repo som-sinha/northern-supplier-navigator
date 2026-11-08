@@ -1,0 +1,160 @@
+uuid: 5af93570-2eae-4d34-be4b-a6ccdc097282
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.service_guide
+  module:
+    - node
+    - taxonomy
+    - user
+id: journeys
+label: 'What do you want to do?'
+module: views
+description: 'Public start page: every published guide, grouped by journey.'
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'What do you want to do?'
+      fields:
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_journey
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: field
+          label: ''
+          exclude: true
+          type: string
+          settings:
+            link_to_entity: false
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          element_type: h4
+          type: string
+          settings:
+            link_to_entity: true
+        field_summary:
+          id: field_summary
+          table: node__field_summary
+          field: field_summary
+          plugin_id: field
+          label: ''
+          element_type: p
+          type: basic_string
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: basic
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: true
+          content: 'No guides have been published yet.'
+      sorts:
+        weight:
+          id: weight
+          table: taxonomy_term_field_data
+          field: weight
+          relationship: field_journey
+          entity_type: taxonomy_term
+          entity_field: weight
+          plugin_id: standard
+          order: ASC
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          order: ASC
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            service_guide: service_guide
+          group: 1
+      style:
+        type: default
+        options:
+          grouping:
+            -
+              field: name
+              rendered: true
+              rendered_strip: false
+          row_class: guide-teaser
+      row:
+        type: fields
+      relationships:
+        field_journey:
+          id: field_journey
+          table: node__field_journey
+          field: field_journey
+          plugin_id: standard
+          required: true
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
+          empty: false
+          content: 'Pick the goal that matches what you need. Each guide explains what to prepare and links to the official government page where you do it. This site never asks for your personal, banking or invoice details.'
+      display_extenders: {  }
+    cache_metadata:
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_summary'
+  page:
+    id: page
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: start

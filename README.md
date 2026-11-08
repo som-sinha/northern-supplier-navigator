@@ -21,8 +21,8 @@ and never asks visitors for personal, banking, bid or invoice information.
 | Demo data: 11 guides from public GNWT pages (`migrations/demo-data/`) | Done |
 | Importing the demo data into the site | Done |
 | Editor approval steps: editors draft, publishers approve | Done |
-| "What do you want to do?" page | Planned |
-| Dashboard showing guides due for review | Planned |
+| "What do you want to do?" page (the home page) | Done |
+| Dashboard showing guides due for review | Done |
 | Public test server, backup and restore test | Planned |
 
 ## Built with
@@ -72,6 +72,22 @@ Guides go through a review before visitors see a change:
 While a change is a draft or in review, visitors keep seeing the last published
 version. They cannot open drafts or the revision history. The demo data is imported
 as already published.
+
+## Keeping guides up to date
+
+Editors and publishers have a **Guide review** tab under Content
+(`/admin/content/guide-review`). It lists every guide with its source page, review
+owner, last and next review dates, and the state of its latest version, with the
+soonest review first. The **Review status** column says:
+
+| Status | Meaning |
+|---|---|
+| Overdue | The next review date has passed |
+| Due within 30 days | The next review date is in the next 30 days |
+| Up to date | The next review is more than 30 days away |
+
+The list is saved for up to an hour to keep it fast, so a guide can take up to an
+hour after midnight to show as overdue.
 
 ## What's in this repository
 

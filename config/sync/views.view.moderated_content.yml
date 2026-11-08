@@ -596,8 +596,9 @@ display:
           plugin_id: moderation_state_filter
           operator: in
           value:
-            editorial-draft: editorial-draft
-            editorial-archived: editorial-archived
+            guide_review-draft: guide_review-draft
+            guide_review-review: guide_review-review
+            guide_review-archived: guide_review-archived
           group: 1
           exposed: true
           expose:
@@ -679,7 +680,7 @@ display:
           plugin_id: moderation_state_filter
           operator: 'not in'
           value:
-            editorial-published: editorial-published
+            guide_review-published: guide_review-published
           group: 1
           exposed: false
           expose:
