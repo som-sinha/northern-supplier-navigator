@@ -5,25 +5,59 @@ they want to do, such as registering to bid, getting procurement help or asking 
 a payment, and tells them what to prepare. It links to the official government pages
 and never asks visitors for personal, banking, bid or invoice information.
 
-> **Disclaimer:** All data on this site was compiled from publicly available GNWT and
-> City of Yellowknife information, with the help of an AI assistant that collected,
-> compiled and organized it (see [`migrations/demo-data/`](migrations/demo-data/README.md)).
-> It may contain errors and is for demonstration only. This is an independent
-> portfolio project, not an official GNWT service.
+> **Disclaimer:** This is an independent portfolio project, not an official GNWT
+> service. Its content was compiled from publicly available GNWT and City of
+> Yellowknife pages, may contain errors, and is for demonstration only.
 
-## Progress
+| Home page | A guide | Editor dashboard |
+|---|---|---|
+| [![Home page listing guides by goal](docs/screenshots/home.png)](docs/screenshots/home.png) | [![Guide page with steps and a checklist](docs/screenshots/guide.png)](docs/screenshots/guide.png) | [![Dashboard of guides and their review dates](docs/screenshots/dashboard.png)](docs/screenshots/dashboard.png) |
+
+## What this project shows
+
+| Skill | Where to look |
+|---|---|
+| Drupal site building | One content type, two category lists and two paragraph types, all saved as files in [`config/sync/`](config/sync) |
+| Content migration | Six import steps that load 11 guides from CSV files laid out like an old system's export: [`migrations/`](web/modules/custom/nsn_migrate/migrations), with the [field map](migrations/demo-data/README.md) |
+| PHP development | A custom import step, [`CsvChildren.php`](web/modules/custom/nsn_migrate/src/Plugin/migrate/process/CsvChildren.php), with [tests](web/modules/custom/nsn_migrate/tests/src/Unit/CsvChildrenTest.php) |
+| Theming | A small sub-theme of Olivero with Twig templates: [`nsn_theme`](web/themes/custom/nsn_theme) |
+| Editorial workflow and access | Editors draft, publishers approve, visitors cannot see drafts: [How publishing works](#how-publishing-works) |
+| Upgrades and release management | A documented security update from Drupal 11.4.11 to 11.4.12: [release 1.1.0](docs/releases/1.1.0.md) and the [release process](docs/release-process.md) |
+| Problem management | A real defect with its cause, fix and regression test: [defect 001](docs/defects/001-moderated-content-filter.md) |
+| Source control and tooling | Git, Composer, Drush, DDEV, PHPUnit and PHP_CodeSniffer |
+
+A CSV import is not the same as a Drupal 7-to-11 upgrade. This project shows a
+content migration and a minor-version core update, not a major-version upgrade.
+
+## Status
 
 | Part | Status |
 |---|---|
-| Drupal site running locally | Done |
-| Site settings saved in Git (`config/sync/`) | Done |
-| Guide page structure (fields, categories, checklists) | Done |
-| Demo data: 11 guides from public GNWT pages (`migrations/demo-data/`) | Done |
-| Importing the demo data into the site | Done |
+| Guide pages, categories and checklists | Done |
+| Demo data: 11 guides imported from CSV, repeatable and reversible | Done |
 | Editor approval steps: editors draft, publishers approve | Done |
-| "What do you want to do?" page (the home page) | Done |
+| Home page listing guides by goal | Done |
 | Dashboard showing guides due for review | Done |
-| Public test server, backup and restore test | Planned |
+| Automated tests, smoke test, documented release process | Done |
+| Public server, with a tested backup and restore | Planned |
+| Keyboard and screen reader testing | Planned |
+
+## How this was built
+
+I built this project to learn Drupal, working alongside an AI coding assistant
+(Claude) the way I would with a senior developer: I asked why at each step, and it
+explained the Drupal concept behind the answer.
+
+- **The decisions are mine.** I chose the scope and the audience, dropped the
+  "audience" field when it turned out to repeat the journeys, kept the old system's
+  CSV files untouched by adding a custom import step instead of editing them, and
+  chose the home page wording.
+- **I learned Drupal by doing it.** I built the content model in the admin screens,
+  wrote the first import steps by hand, and debugged them from their error messages
+  (wrong file paths, stale caches, a missing export of site settings).
+- **The assistant reviewed my work and wrote parts of the code,** and collected the
+  demo data from the public source pages (see
+  [`migrations/demo-data/`](migrations/demo-data/README.md)).
 
 ## Built with
 
@@ -31,6 +65,7 @@ and never asks visitors for personal, banking, bid or invoice information.
 - **Apache, PHP 8.4, MariaDB 10.11**: the web server, programming language and database (the "LAMP" stack)
 - **DDEV and Docker**: run all of the above on a laptop without installing it directly
 - **Composer and Drush**: Drupal's tools for installing add-ons and running commands
+- **PHPUnit and PHP_CodeSniffer**: automated tests and Drupal coding standard checks
 
 ## Run it on your own computer
 
@@ -98,8 +133,20 @@ hour after midnight to show as overdue.
 | `config/sync/` | The site's settings, saved as files | Yes |
 | `migrations/demo-data/` | The demo data and notes on where it came from | Yes |
 | `web/modules/custom/`, `web/themes/custom/` | Code written for this project | Yes |
+| `docs/`, `scripts/`, `tests/` | Release notes and process, the smoke test, and tests of the site settings | Yes |
 | `web/core/`, `vendor/`, `*/contrib/` | Drupal and add-ons, downloaded by Composer | No |
 | `web/sites/default/files/` | Uploaded files | No |
+
+## Tests and checks
+
+```bash
+ddev exec vendor/bin/phpunit    # automated tests
+ddev exec vendor/bin/phpcs      # Drupal coding standards
+scripts/smoke-test.sh           # 14 checks of pages, access rules and site state
+```
+
+The steps for updating, releasing and rolling back are in the
+[release process](docs/release-process.md).
 
 ## Changing site settings
 
