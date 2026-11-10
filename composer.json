@@ -26,6 +26,7 @@
         "drupal/migrate_source_csv": "^3.8",
         "drupal/migrate_tools": "^6.1",
         "drupal/paragraphs": "^1.23",
+        "drupal/pathauto": "^1.16",
         "drush/drush": "^13.8"
     },
     "conflict": {
@@ -106,5 +107,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/core-dev": "^11.4"
     }
 }
