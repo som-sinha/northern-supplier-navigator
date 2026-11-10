@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Run with: ddev exec vendor/bin/phpcs -->
+<ruleset name="Northern Supplier Navigator">
+  <description>Drupal coding standards for this project's own code.</description>
+  <file>web/modules/custom</file>
+  <file>web/themes/custom</file>
+  <file>tests</file>
+  <arg name="extensions" value="php,module,theme,inc,yml,twig"/>
+  <rule ref="Drupal"/>
+  <rule ref="DrupalPractice"/>
+</ruleset>

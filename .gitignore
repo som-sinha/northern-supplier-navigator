@@ -46,3 +46,10 @@ Thumbs.db
 
 # Build artifacts
 /web/core/*.map
+
+# Test and tool caches
+/.phpunit.result.cache
+/.phpunit.cache/
+
+# Server database backups
+/backups/

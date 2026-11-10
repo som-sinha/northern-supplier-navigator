@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Run with: ddev exec vendor/bin/phpunit -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="web/core/tests/bootstrap.php"
+         colors="true"
+         failOnWarning="true"
+         failOnRisky="true">
+  <testsuites>
+    <testsuite name="unit">
+      <directory>web/modules/custom/*/tests/src/Unit</directory>
+    </testsuite>
+    <testsuite name="config">
+      <directory>tests/src</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
