@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - node.type.service_guide
-    - taxonomy.vocabulary.tags
     - workflows.workflow.guide_review
   module:
     - content_moderation
@@ -14,7 +13,6 @@ dependencies:
     - node
     - path
     - system
-    - taxonomy
 id: publisher
 label: Publisher
 weight: 4
@@ -27,11 +25,9 @@ permissions:
   - 'access navigation'
   - 'administer url aliases'
   - 'create service_guide content'
-  - 'create terms in tags'
   - 'create url aliases'
   - 'delete own files'
   - 'edit any service_guide content'
-  - 'edit terms in tags'
   - 'revert all revisions'
   - 'use guide_review transition archive'
   - 'use guide_review transition create_new_draft'

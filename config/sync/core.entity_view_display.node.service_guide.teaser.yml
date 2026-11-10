@@ -1,0 +1,51 @@
+uuid: 9f382381-99a6-4368-bf90-282be30fc920
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.service_guide.field_checklist
+    - field.field.node.service_guide.field_contact_email
+    - field.field.node.service_guide.field_contact_phone
+    - field.field.node.service_guide.field_editor_notes
+    - field.field.node.service_guide.field_journey
+    - field.field.node.service_guide.field_last_reviewed
+    - field.field.node.service_guide.field_next_review
+    - field.field.node.service_guide.field_official_link
+    - field.field.node.service_guide.field_organization
+    - field.field.node.service_guide.field_related_guides
+    - field.field.node.service_guide.field_resources
+    - field.field.node.service_guide.field_review_owner
+    - field.field.node.service_guide.field_source_url
+    - field.field.node.service_guide.field_steps
+    - field.field.node.service_guide.field_summary
+    - node.type.service_guide
+id: node.service_guide.teaser
+targetEntityType: node
+bundle: service_guide
+mode: teaser
+content:
+  field_summary:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  content_moderation_control: true
+  field_checklist: true
+  field_contact_email: true
+  field_contact_phone: true
+  field_editor_notes: true
+  field_journey: true
+  field_last_reviewed: true
+  field_next_review: true
+  field_official_link: true
+  field_organization: true
+  field_related_guides: true
+  field_resources: true
+  field_review_owner: true
+  field_source_url: true
+  field_steps: true
+  links: true

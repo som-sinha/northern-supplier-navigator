@@ -1,0 +1,23 @@
+uuid: 69642716-23e4-4f68-be28-f41575f3d27f
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.journey
+  module:
+    - taxonomy
+id: journeys
+label: Journeys
+type: 'canonical_entities:taxonomy_term'
+pattern: '/journeys/[term:name]'
+selection_criteria:
+  0093a4d8-f4cd-4ce9-8ddf-5f54b03fa19a:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      journey: journey
+selection_logic: and
+weight: 0
+relationships: {  }

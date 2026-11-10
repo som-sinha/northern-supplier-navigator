@@ -135,3 +135,19 @@
   font-size: 0.9375rem;
   color: var(--color--gray-45);
 }
+
+/* Journey pages: guides listed as a compact title and summary. */
+.node--view-mode-teaser.node--type-service-guide {
+  margin-block-end: var(--sp1);
+  padding-block-end: var(--sp1);
+
+  & .node__title {
+    margin-block: 0 var(--sp0-25);
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  & .node__content {
+    padding-block-end: 0;
+  }
+}

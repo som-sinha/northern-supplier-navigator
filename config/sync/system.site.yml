@@ -4,7 +4,7 @@ langcode: en
 uuid: 8ea87e43-f8e8-44db-aa61-d0e4740a7330
 name: 'Northern Supplier Navigator'
 mail: admin@example.com
-slogan: ''
+slogan: 'Independent portfolio project. Not an official GNWT service.'
 page:
   403: ''
   404: ''

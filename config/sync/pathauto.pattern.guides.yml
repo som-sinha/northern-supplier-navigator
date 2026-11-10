@@ -1,0 +1,23 @@
+uuid: c43c3e83-8607-47d0-89b6-a06be4461183
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.service_guide
+  module:
+    - node
+id: guides
+label: Guides
+type: 'canonical_entities:node'
+pattern: '/guides/[node:title]'
+selection_criteria:
+  cbd0856a-e0d1-49c0-8f46-b3e5f3976aee:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      service_guide: service_guide
+selection_logic: and
+weight: 0
+relationships: {  }

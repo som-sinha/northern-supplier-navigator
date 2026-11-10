@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - node.type.service_guide
-    - taxonomy.vocabulary.tags
     - workflows.workflow.guide_review
   module:
     - content_moderation
@@ -14,7 +13,6 @@ dependencies:
     - node
     - path
     - system
-    - taxonomy
 _core:
   default_config_hash: og55Zu0F-q-X8zG0Ohrls49zws6IrmmosZS-30Es8vw
 id: content_editor
@@ -29,11 +27,9 @@ permissions:
   - 'access navigation'
   - 'administer url aliases'
   - 'create service_guide content'
-  - 'create terms in tags'
   - 'create url aliases'
   - 'delete own files'
   - 'edit any service_guide content'
-  - 'edit terms in tags'
   - 'use guide_review transition create_new_draft'
   - 'use guide_review transition submit_for_review'
   - 'view all revisions'
