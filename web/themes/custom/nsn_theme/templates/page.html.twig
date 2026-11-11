@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Page layout for the Navigator theme.
+ *
+ * Based on Olivero's page.html.twig, with three changes:
+ * - The header is not marked "fixable", so Olivero's script no longer pins it
+ *   and folds the menu into a button when the page is scrolled.
+ * - The unused hero, sidebar and social bar regions are left out.
+ * - The footer always shows who runs the site and where its facts come from.
+ */
+#}
+<div id="page-wrapper" class="page-wrapper">
+  <div id="page">
+
+    {% if page.header or page.primary_menu or page.secondary_menu %}
+      <header id="header" class="site-header" data-drupal-selector="site-header">
+        <div class="site-header__fixable">
+          <div class="site-header__initial">
+            {# Kept because Olivero's script expects it; it is never shown. #}
+            <button class="sticky-header-toggle" data-drupal-selector="sticky-header-toggle" role="switch" aria-controls="site-header__inner" aria-label="{{ 'Sticky header'|t }}" aria-checked="false" hidden>
+              <span class="sticky-header-toggle__icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
+          <div id="site-header__inner" class="site-header__inner" data-drupal-selector="site-header-inner">
+            <div class="container site-header__inner__container">
+              {{ page.header }}
+              {% if page.primary_menu or page.secondary_menu %}
+                <div class="mobile-buttons" data-drupal-selector="mobile-buttons">
+                  <button class="mobile-nav-button" data-drupal-selector="mobile-nav-button" aria-label="{{ 'Main Menu'|t }}" aria-controls="header-nav" aria-expanded="false">
+                    <span class="mobile-nav-button__label">{{ 'Menu'|t }}</span>
+                    <span class="mobile-nav-button__icon"></span>
+                  </button>
+                </div>
+                <div id="header-nav" class="header-nav" data-drupal-selector="header-nav">
+                  {{ page.primary_menu }}
+                  {{ page.secondary_menu }}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </header>
+    {% endif %}
+
+    <div id="main-wrapper" class="layout-main-wrapper layout-container">
+      <div id="main" class="layout-main">
+        <div class="main-content">
+          <a id="main-content" tabindex="-1"></a>
+          <div class="main-content__container container">
+            {{ page.highlighted }}
+            {{ page.breadcrumb }}
+            <main>
+              {{ page.content_above }}
+              {{ page.content }}
+            </main>
+            {{ page.content_below }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner container">
+        <div class="site-footer__about">
+          <p><strong>{{ 'This is not a Government of the Northwest Territories website.'|t }}</strong></p>
+          <p>{{ 'It is an independent portfolio project. The guides were compiled from public GNWT and City of Yellowknife pages and may be out of date. Always check the official page a guide links to before you act on it.'|t }}</p>
+          <p><a href="https://github.com/som-sinha/northern-supplier-navigator">{{ 'How this site was built (GitHub)'|t }}</a></p>
+        </div>
+        {{ page.footer_top }}
+        {{ page.footer_bottom }}
+      </div>
+    </footer>
+
+    <div class="overlay" data-drupal-selector="overlay"></div>
+  </div>
+</div>

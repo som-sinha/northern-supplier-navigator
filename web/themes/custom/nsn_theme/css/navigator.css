@@ -14,7 +14,7 @@
   margin-block: var(--sp1);
 
   @media (min-width: 43.75rem) {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     line-height: 1.15;
   }
 }
@@ -28,6 +28,8 @@
 .view-journeys .view-header {
   max-width: 42rem;
   margin-block-end: var(--sp2);
+  font-size: 1.125rem;
+  line-height: 1.6;
 }
 
 .journey {
@@ -136,18 +138,282 @@
   color: var(--color--gray-45);
 }
 
-/* Journey pages: guides listed as a compact title and summary. */
+/* Journey pages: the same compact list as the home page. */
+.view-taxonomy-term,
+.view-taxonomy-term .view-content {
+  display: block;
+}
+
+.view-taxonomy-term .view-header {
+  margin-block-end: var(--sp1-5);
+}
+
+.view-taxonomy-term .field--name-description {
+  font-family: inherit;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.view-taxonomy-term .view-content {
+  border-block-start: 1px solid var(--color--gray-90);
+}
+
 .node--view-mode-teaser.node--type-service-guide {
-  margin-block-end: var(--sp1);
-  padding-block-end: var(--sp1);
+  padding-block: var(--sp0-75);
+  border-block-end: 1px solid var(--color--gray-90);
+
+  &::after {
+    content: none;
+  }
+
+  & .teaser__meta,
+  & .teaser__top {
+    margin: 0;
+  }
 
   & .node__title {
     margin-block: 0 var(--sp0-25);
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.4;
   }
 
-  & .node__content {
-    padding-block-end: 0;
+  & .node__title a {
+    color: var(--color--primary-40);
+    text-decoration: underline;
+  }
+
+  & .teaser__content {
+    display: block;
+  }
+
+  & .field--name-field-summary {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/**
+ * Page frame.
+ *
+ * Olivero offsets the header, content and footer differently and reserves a
+ * strip on the left for a social bar this site does not use. Here they all
+ * share one centred container, so everything starts at the same left edge.
+ */
+:root {
+  --content-left: 0px;
+  --nsn-page-width: 68rem;
+  --nsn-text-width: 46rem;
+  --nsn-gutter: var(--sp1);
+
+  @media (min-width: 43.75rem) {
+    --nsn-gutter: var(--sp2);
+  }
+}
+
+.site-header__inner__container,
+.main-content__container,
+.site-footer__inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--nsn-page-width);
+  margin-inline: auto;
+  padding-inline: var(--nsn-gutter);
+}
+
+.main-content {
+  width: 100%;
+  margin-inline: 0;
+}
+
+/* Olivero lays regions out on a 14-column grid; plain blocks are enough. */
+.main-content__container .region {
+  display: block;
+  max-width: var(--nsn-text-width);
+  margin-block-end: var(--sp1);
+}
+
+/* The page title may run wider than the text below it. */
+.main-content__container .region--content-above {
+  max-width: none;
+  margin-block-end: 0;
+}
+
+/* Header: one blue bar with the site name on the left and links on the right. */
+.site-header {
+  min-height: 0;
+  background-image: linear-gradient(160deg, var(--color--primary-50) 0%, var(--color--primary-40) 78.66%);
+}
+
+.site-header__initial {
+  display: none;
+}
+
+.site-header__fixable {
+  display: block;
+}
+
+.site-header__inner {
+  width: 100%;
+  background: transparent;
+}
+
+.site-header__inner__container {
+  align-items: center;
+  min-height: 4.5rem;
+}
+
+.site-branding {
+  min-width: 0;
+  min-height: 0;
+  margin-inline: 0;
+  padding: var(--sp0-5) 0;
+  background: none;
+}
+
+.site-branding__inner {
+  height: auto;
+  padding-block: 0;
+}
+
+.site-branding__text {
+  gap: 0.125rem;
+}
+
+.site-branding__name {
+  letter-spacing: 0;
+  font-size: 1.125rem;
+  line-height: 1.3;
+
+  @media (min-width: 43.75rem) {
+    font-size: 1.375rem;
+  }
+}
+
+.site-branding__slogan {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+/* Small screens: the "Menu" button sits on the blue bar, centred vertically. */
+.mobile-buttons {
+  margin-block-start: 0;
+}
+
+.mobile-nav-button {
+  color: var(--color--white);
+}
+
+.mobile-nav-button:focus {
+  outline-color: var(--color--white);
+}
+
+.mobile-nav-button__icon,
+.mobile-nav-button__icon::before,
+.mobile-nav-button__icon::after {
+  border-top-color: var(--color--white);
+}
+
+/* When the menu is open, the button sits on the white menu panel. */
+.mobile-nav-button[aria-expanded="true"] {
+  color: var(--color--gray-20);
+
+  &:focus {
+    outline-color: var(--color--primary-40);
+  }
+
+  & .mobile-nav-button__icon::before,
+  & .mobile-nav-button__icon::after {
+    border-top-color: var(--color--primary-50);
+  }
+}
+
+/* Wide screens: white links on the blue bar. */
+@media (min-width: 75rem) {
+  body:not(.is-always-mobile-nav) .site-header .primary-nav__menu-link,
+  body:not(.is-always-mobile-nav) .site-header .secondary-nav__menu-link {
+    color: var(--color--white);
+  }
+
+  body:not(.is-always-mobile-nav) .site-header .primary-nav__menu-link-inner::after,
+  body:not(.is-always-mobile-nav) .site-header .secondary-nav__menu-link::after {
+    background-color: var(--color--white);
+  }
+
+  body:not(.is-always-mobile-nav) .site-header .secondary-nav::before {
+    background-color: rgb(255, 255, 255, 0.4);
+  }
+
+  body:not(.is-always-mobile-nav) .site-footer {
+    border-inline-start: 0;
+  }
+
+  /* The menu holder is a white panel on small screens; here it sits on the bar. */
+  body:not(.is-always-mobile-nav) .header-nav {
+    height: auto;
+    margin-block-start: 0;
+    background: transparent;
+  }
+}
+
+/* Footer */
+.site-footer__inner {
+  padding-block: var(--sp2);
+}
+
+.site-footer__about {
+  max-width: var(--nsn-text-width);
+  color: var(--color--gray-90);
+
+  & p {
+    margin-block: 0 var(--sp0-5);
+  }
+
+  & a {
+    color: var(--color--white);
+  }
+}
+
+/* The footer sits at the bottom of the window even on short pages. */
+body {
+  background-color: var(--color--white);
+  background-image: none;
+}
+
+#page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-main-wrapper {
+  flex: 1 0 auto;
+  padding-block-end: var(--sp2);
+}
+
+.site-footer {
+  hyphens: manual;
+}
+
+/* Olivero spaces the parts of every list 54px apart on a grid. The home page
+   sets its own spacing instead. */
+.view-journeys,
+.view-journeys .view-content {
+  display: block;
+}
+
+/* Home page on wide screens: journeys flow into two columns. */
+@media (min-width: 62.5rem) {
+  .main-content__container .region--content:has(.view-journeys) {
+    max-width: none;
+  }
+
+  .view-journeys .view-content {
+    columns: 2;
+    column-gap: var(--sp3);
+  }
+
+  .view-journeys .journey {
+    break-inside: avoid;
   }
 }
