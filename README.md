@@ -5,6 +5,8 @@ they want to do, such as registering to bid, getting procurement help or asking 
 a payment, and tells them what to prepare. It links to the official government pages
 and never asks visitors for personal, banking, bid or invoice information.
 
+**Live site: <https://somsinha.net>**
+
 > **Disclaimer:** This is an independent portfolio project, not an official GNWT
 > service. Its content was compiled from publicly available GNWT and City of
 > Yellowknife pages, may contain errors, and is for demonstration only.
@@ -23,6 +25,7 @@ and never asks visitors for personal, banking, bid or invoice information.
 | Theming | A small sub-theme of Olivero with Twig templates: [`nsn_theme`](web/themes/custom/nsn_theme) |
 | Editorial workflow and access | Editors draft, publishers approve, visitors cannot see drafts: [How publishing works](#how-publishing-works) |
 | Upgrades and release management | A documented security update from Drupal 11.4.11 to 11.4.12: [release 1.1.0](docs/releases/1.1.0.md) and the [release process](docs/release-process.md) |
+| Linux server administration | Ubuntu, Apache, PHP-FPM and MariaDB behind Cloudflare, with a firewall and key-only sign-in: [server setup](docs/server-setup.md) |
 | Problem management | A real defect with its cause, fix and regression test: [defect 001](docs/defects/001-moderated-content-filter.md) |
 | Source control and tooling | Git, Composer, Drush, DDEV, PHPUnit and PHP_CodeSniffer |
 
@@ -39,7 +42,8 @@ content migration and a minor-version core update, not a major-version upgrade.
 | Home page listing guides by goal | Done |
 | Dashboard showing guides due for review | Done |
 | Automated tests, smoke test, documented release process | Done |
-| Public server, with a tested backup and restore | Planned |
+| Public server with HTTPS: <https://somsinha.net> ([how it is set up](docs/server-setup.md)) | Done |
+| Scheduled backup, with a restore tested on another machine | Planned |
 | Keyboard and screen reader testing | Planned |
 
 ## How this was built
