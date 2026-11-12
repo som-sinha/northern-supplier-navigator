@@ -5,7 +5,7 @@ they want to do, such as registering to bid, getting procurement help or asking 
 a payment, and tells them what to prepare. It links to the official government pages
 and never asks visitors for personal, banking, bid or invoice information.
 
-**Live site: <https://somsinha.net>**
+**Live site: <https://nsn.somsinha.net>**
 
 > **Disclaimer:** This is an independent portfolio project, not an official GNWT
 > service. Its content was compiled from publicly available GNWT and City of
@@ -42,7 +42,7 @@ content migration and a minor-version core update, not a major-version upgrade.
 | Home page listing guides by goal | Done |
 | Dashboard showing guides due for review | Done |
 | Automated tests, smoke test, documented release process | Done |
-| Public server with HTTPS: <https://somsinha.net> ([how it is set up](docs/server-setup.md)) | Done |
+| Public server with HTTPS: <https://nsn.somsinha.net> ([how it is set up](docs/server-setup.md)) | Done |
 | Scheduled backup, with a restore tested on another machine | Planned |
 | Keyboard and screen reader testing | Planned |
 

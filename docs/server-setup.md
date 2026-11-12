@@ -1,6 +1,6 @@
 # Server setup
 
-How the public site at <https://somsinha.net> is hosted. It records what was
+How the public site at <https://nsn.somsinha.net> is hosted. It records what was
 installed and why, so the server can be rebuilt from this page.
 
 ## At a glance
@@ -27,7 +27,7 @@ The laptop runs PHP 8.4 and the server 8.3. Nothing in the project needs 8.4.
 - **Secrets:** the database password and Drupal's secret key were generated on the
   server and exist only in `web/sites/default/settings.local.php` there (readable by
   `deploy` and the web server, not in Git).
-- **Allowed addresses:** Drupal answers only to `somsinha.net` and `www.somsinha.net`
+- **Allowed addresses:** Drupal answers only to `nsn.somsinha.net`
   (`trusted_host_patterns`).
 - **Blocked scripts:** Apache refuses `/core/install.php` and `/core/rebuild.php`.
 - **Headers:** HTTPS is enforced for a year (`Strict-Transport-Security`), and Apache
@@ -37,8 +37,8 @@ The laptop runs PHP 8.4 and the server 8.3. Nothing in the project needs 8.4.
 
 Visitors connect to Cloudflare, which holds the public certificate. Cloudflare
 connects to the server over HTTPS as well, using a certificate created on the server
-(Cloudflare's "Full" mode). Plain HTTP requests and the `www` address are redirected
-to `https://somsinha.net`.
+(Cloudflare's "Full" mode). Plain HTTP requests are redirected to
+`https://nsn.somsinha.net`.
 
 **Limit:** the server's certificate is self-signed, so Cloudflare encrypts that
 connection but does not verify who it is talking to. The stricter setup is a
@@ -76,7 +76,7 @@ composer install --no-dev
 vendor/bin/drush site:install --existing-config -y
 # create the two demo accounts as in the README, then:
 vendor/bin/drush migrate:import --group=nsn
-BASE_URL=https://somsinha.net DRUSH="vendor/bin/drush --uri=https://somsinha.net" scripts/smoke-test.sh
+BASE_URL=https://nsn.somsinha.net DRUSH="vendor/bin/drush --uri=https://nsn.somsinha.net" scripts/smoke-test.sh
 ```
 
 The smoke test passed 14 of 14 checks on the server.
