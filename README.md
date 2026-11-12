@@ -1,5 +1,7 @@
 # Northern Supplier Navigator
 
+[![Checks](https://github.com/som-sinha/northern-supplier-navigator/actions/workflows/ci.yml/badge.svg)](https://github.com/som-sinha/northern-supplier-navigator/actions/workflows/ci.yml)
+
 A website that helps Yellowknife-area businesses find the right GNWT service for what
 they want to do, such as registering to bid, getting procurement help or asking about
 a payment, and tells them what to prepare. It links to the official government pages
@@ -20,7 +22,7 @@ and never asks visitors for personal, banking, bid or invoice information.
 | Skill | Where to look |
 |---|---|
 | Drupal site building | One content type, two category lists and two paragraph types, all saved as files in [`config/sync/`](config/sync) |
-| Content migration | Six import steps that load 11 guides from CSV files laid out like an old system's export: [`migrations/`](web/modules/custom/nsn_migrate/migrations), with the [field map](migrations/demo-data/README.md) |
+| Content migration | Six import steps that load 11 guides from CSV files laid out like an old system's export: [`migrations/`](web/modules/custom/nsn_migrate/migrations), with the [field map](migrations/demo-data/README.md) and a [test that a changed row updates its page](migrations/demo-data/README.md#test-a-changed-row-updates-its-page) |
 | PHP development | A custom import step, [`CsvChildren.php`](web/modules/custom/nsn_migrate/src/Plugin/migrate/process/CsvChildren.php), with [tests](web/modules/custom/nsn_migrate/tests/src/Unit/CsvChildrenTest.php) |
 | Theming | A small sub-theme of Olivero with Twig templates: [`nsn_theme`](web/themes/custom/nsn_theme) |
 | Editorial workflow and access | Editors draft, publishers approve, visitors cannot see drafts: [How publishing works](#how-publishing-works) |
@@ -43,8 +45,9 @@ content migration and a minor-version core update, not a major-version upgrade.
 | Dashboard showing guides due for review | Done |
 | Automated tests, smoke test, documented release process | Done |
 | Public server with HTTPS: <https://nsn.somsinha.net> ([how it is set up](docs/server-setup.md)) | Done |
-| Scheduled backup, with a restore tested on another machine | Planned |
-| Keyboard and screen reader testing | Planned |
+| Nightly backup on the server, with a restore tested on a laptop ([how](docs/backup-and-restore.md)) | Done. Not yet copied off the server |
+| Automated accessibility checks of four pages, with fixes ([results](docs/accessibility.md)) | Done. Fixes not on the live site yet |
+| Testing by a person with a keyboard and a screen reader | Not done yet |
 
 ## How this was built
 
@@ -148,6 +151,14 @@ ddev exec vendor/bin/phpunit    # automated tests
 ddev exec vendor/bin/phpcs      # Drupal coding standards
 scripts/smoke-test.sh           # 14 checks of pages, access rules and site state
 ```
+
+GitHub runs the first two, plus `composer validate` and `composer audit`, on PHP 8.3
+(the server's version) on every push and pull request to `main`
+([`ci.yml`](.github/workflows/ci.yml)). The smoke test needs a running site, so it
+is not part of those checks.
+
+Accessibility was checked with Lighthouse, axe and checks by hand: see the
+[accessibility check](docs/accessibility.md) for the results and what is not tested.
 
 The steps for updating, releasing and rolling back are in the
 [release process](docs/release-process.md).

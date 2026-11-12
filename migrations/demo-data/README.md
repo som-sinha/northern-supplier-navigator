@@ -91,6 +91,59 @@ guide before changing it.
 | Which office handles complaints (GDE-007) | Assumed from a shared phone number; needs confirming |
 | French content | Only the official bilingual title of one form (RES-005). No translations were written |
 
+## Test: a changed row updates its page
+
+Checks that when a row in the old system's export changes, importing again updates
+the existing guide page instead of making a second one. Run on the local site on
+2026-11-12.
+
+**1. Before.** Guide `GDE-005`:
+
+| | Value |
+|---|---|
+| Node ID (the page's number in Drupal) | 82 |
+| Title | Attend GNWT procurement training |
+| Summary | Procurement Shared Services runs online webinars on contracting with the GNWT, using the Contract Event Opportunities website and completing Business Incentive Policy forms. |
+| Guides on the site | 11 |
+
+**2. Change the row.** The summary of `GDE-005` in `guides.csv` was changed to
+"TEST CHANGE: Procurement Shared Services runs free online webinars on contracting
+with the GNWT." Then:
+
+```
+$ ddev drush migrate:import nsn_guides --update
+ [notice] Processed 11 items (0 created, 11 updated, 0 failed, 0 ignored) - done with 'nsn_guides'
+```
+
+`--update` tells the import tool to load every row again, not only new ones.
+
+**3. After.**
+
+| Check | Result |
+|---|---|
+| Summary of node 82 | The new "TEST CHANGE" text, in the database and on the page itself |
+| Node ID of "Attend GNWT procurement training" | Still 82 |
+| Guides on the site | Still 11, all published. No duplicate |
+| Related guides, checklist items and forms | Unchanged (18 checklist items, 5 forms) |
+
+**4. Put it back.** `guides.csv` was restored from Git, and
+`git diff --stat migrations/demo-data/guides.csv` printed nothing (no change). The same
+import was run again (11 updated, 0 created), and node 82 had its original summary
+again.
+
+### Limits
+
+- **`--update` overwrites edits made on the site.** If an editor changes a guide in the
+  admin screens, the next `--update` puts back what the CSV file says, without a
+  warning. Run it only while the CSV files are still the source of truth, before
+  editors start working on the site. After that, edit guides on the site only.
+- **No new version is saved.** The import changes the guide's current version in
+  place (node 82 kept its single version, number 87), so the guide's history does not
+  show the change, and it skips the approval steps editors go through.
+- **A row deleted from the CSV file is not deleted from the site.** The import only
+  adds and updates.
+- Only the summary of one guide was changed in this test.
+
 ## Sources
 
 - [Current Opportunities and Awarded Contracts](https://www.fin.gov.nt.ca/en/services/6-current-opportunities-and-awarded-contracts)

@@ -15,6 +15,9 @@ installed and why, so the server can be rebuilt from this page.
 | In front | Cloudflare (DNS, HTTPS certificate, proxy) | Hides the server's address and serves the certificate |
 
 The laptop runs PHP 8.4 and the server 8.3. Nothing in the project needs 8.4.
+`composer.json` tells Composer to choose add-on versions that work on PHP 8.3
+(`config.platform.php`), so an update on the laptop cannot pick one that only runs
+on 8.4. GitHub runs the automated checks on 8.3 for the same reason.
 
 ## Security
 
@@ -51,7 +54,9 @@ Cloudflare Origin Certificate on the server with the mode set to "Full (strict)"
 | `/var/www/nsn` | The project, checked out at a release tag |
 | `/var/www/nsn/web` | The folder Apache serves |
 | `/var/www/nsn/web/sites/default/settings.local.php` | Server-only settings |
-| `/var/www/nsn-backups` | Database backups (not served) |
+| `/var/www/nsn-backups` | Backups and their log, `backup.log` (not served). See [backup and restore](backup-and-restore.md) |
+| `/usr/local/bin/nsn-backup` | The backup script, a copy of `scripts/backup.sh` |
+| `/etc/cron.d/nsn-backup` | Runs the backup every night at 09:30 UTC |
 | `/etc/apache2/sites-available/nsn.conf` | Apache site settings |
 | `/etc/cron.d/nsn-drupal` | Runs Drupal's scheduled tasks every 30 minutes |
 | `/var/log/apache2/nsn-*.log` | Access and error logs |
@@ -88,7 +93,9 @@ check out the new tag, `composer install --no-dev`, `drush deploy`, smoke test.
 
 ## Not done yet
 
-- A scheduled database backup, and a restore of it tested on a separate machine.
+- Copying backups off the server. The nightly backup and a tested restore are done
+  ([backup and restore](backup-and-restore.md)), but the backups sit on the same
+  server as the site.
 - "Full (strict)" HTTPS between Cloudflare and the server.
 - Limiting web traffic to Cloudflare's addresses, so the server cannot be reached
   directly by its IP address.

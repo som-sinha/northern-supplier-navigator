@@ -1,0 +1,46 @@
+# Automated checks, run by GitHub on every push and pull request to main.
+#
+# It installs the project on PHP 8.3 (the version the live server runs), then
+# checks the Composer files, runs the automated tests, checks the Drupal coding
+# standards and looks for known security problems in the add-ons.
+# None of these need a database or a running website.
+
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP 8.3 and Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: composer:v2
+          coverage: none
+
+      - name: Check composer.json and composer.lock
+        run: composer validate
+
+      - name: Install Drupal and add-ons from composer.lock
+        run: composer install --no-interaction --no-progress
+
+      - name: Run the automated tests
+        run: vendor/bin/phpunit
+
+      - name: Check Drupal coding standards
+        run: vendor/bin/phpcs
+
+      - name: Look for known security problems
+        run: composer audit

@@ -239,10 +239,13 @@
   margin-block-end: 0;
 }
 
-/* Header: one blue bar with the site name on the left and links on the right. */
+/* Header: one blue bar with the site name on the left and links on the right.
+   The blue runs from primary-40 to the darker primary-30, so white text has a
+   contrast of at least 5:1 everywhere on the bar. Olivero's lighter
+   primary-50 gave only 3:1, too low for the small slogan and menu links. */
 .site-header {
   min-height: 0;
-  background-image: linear-gradient(160deg, var(--color--primary-50) 0%, var(--color--primary-40) 78.66%);
+  background-image: linear-gradient(160deg, var(--color--primary-40) 0%, var(--color--primary-30) 78.66%);
 }
 
 .site-header__initial {
@@ -344,6 +347,13 @@
     background-color: rgb(255, 255, 255, 0.4);
   }
 
+  /* Olivero draws a light blue box around a focused menu link, which cannot
+     be seen on the blue bar. Draw it in white instead. */
+  body:not(.is-always-mobile-nav) .site-header .primary-nav__menu-link:focus::before,
+  body:not(.is-always-mobile-nav) .site-header .secondary-nav__menu-link:focus::before {
+    border-color: var(--color--white);
+  }
+
   body:not(.is-always-mobile-nav) .site-footer {
     border-inline-start: 0;
   }
@@ -354,6 +364,20 @@
     margin-block-start: 0;
     background: transparent;
   }
+}
+
+/* Focus rings on a white or light grey page. Olivero draws the ones on
+   buttons and tabs (such as "Log in" and "Reset your password") in light
+   blues that stand out from the page by less than 3:1, the minimum for
+   something a keyboard user has to see. primary-40 stands out by 4.7:1 or
+   more. The tabs' colour also marks the open tab. */
+.button:focus {
+  outline-color: var(--color--primary-40);
+}
+
+/* "main" makes this win over Olivero's tabs file, which loads later. */
+main .tabs {
+  --tabs-highlight-color: var(--color--primary-40);
 }
 
 /* Footer */

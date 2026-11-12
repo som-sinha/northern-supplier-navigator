@@ -3,11 +3,14 @@
  * @file
  * Page layout for the Navigator theme.
  *
- * Based on Olivero's page.html.twig, with three changes:
+ * Based on Olivero's page.html.twig, with four changes:
  * - The header is not marked "fixable", so Olivero's script no longer pins it
  *   and folds the menu into a button when the page is scrolled.
  * - The unused hero, sidebar and social bar regions are left out.
  * - The footer always shows who runs the site and where its facts come from.
+ * - The highlighted region (messages and the tabs on pages such as Log in)
+ *   is inside <main>, so screen reader users find it in the main content
+ *   instead of outside every landmark.
  */
 #}
 <div id="page-wrapper" class="page-wrapper">
@@ -52,9 +55,9 @@
         <div class="main-content">
           <a id="main-content" tabindex="-1"></a>
           <div class="main-content__container container">
-            {{ page.highlighted }}
             {{ page.breadcrumb }}
             <main>
+              {{ page.highlighted }}
               {{ page.content_above }}
               {{ page.content }}
             </main>
