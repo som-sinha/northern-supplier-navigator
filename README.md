@@ -46,7 +46,7 @@ content migration and a minor-version core update, not a major-version upgrade.
 | Automated tests, smoke test, documented release process | Done |
 | Public server with HTTPS: <https://nsn.somsinha.net> ([how it is set up](docs/server-setup.md)) | Done |
 | Nightly backup on the server, with a restore tested on a laptop ([how](docs/backup-and-restore.md)) | Done. Not yet copied off the server |
-| Automated accessibility checks of four pages, with fixes ([results](docs/accessibility.md)) | Done. Fixes not on the live site yet |
+| Automated accessibility checks of four pages, with fixes ([results](docs/accessibility.md)) | Done. Fixes live since release 1.3.0 |
 | Testing by a person with a keyboard and a screen reader | Not done yet |
 
 ## How this was built

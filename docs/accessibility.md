@@ -14,8 +14,8 @@ the usual standard for government websites. Checked on 2026-11-12.
 | Log in | `/user/login` |
 
 Each page was checked on the live site first (<https://nsn.somsinha.net>), then on the
-local copy after the fixes (<https://gnwt-navigator.ddev.site>). The fixes are not on
-the live site yet: they go out with the next release.
+local copy after the fixes (<https://gnwt-navigator.ddev.site>). The fixes went
+live with release 1.3.0 on 2026-11-12.
 
 ## How it was checked
 
@@ -102,6 +102,7 @@ lowest contrast is now 5.0:1, on the header.
 - **Zoom to 200 percent and larger text settings**, and Windows high contrast mode.
 - **Pages other than these four**, including the editor screens (which use the Gin
   admin theme, not this one) and error pages.
-- **The live site after the fixes.** They are only on the local copy until the next
-  release.
+- **A full re-scan of the live site after the fixes.** The fixes are live (the darker
+  header and the Log in page's tabs were confirmed there), but the scans themselves
+  were only run on the local copy.
 - **Plain language and reading level** of the guides themselves.
