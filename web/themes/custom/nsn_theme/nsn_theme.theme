@@ -5,6 +5,8 @@
  * Theme functions for the Navigator theme.
  */
 
+use Drupal\Core\Url;
+
 /**
  * Implements hook_theme_suggestions_field_alter().
  *
@@ -16,4 +18,35 @@ function nsn_theme_theme_suggestions_field_alter(array &$suggestions, array $var
   if (in_array($variables['element']['#field_name'], $lists, TRUE)) {
     $suggestions[] = 'field__guide_list';
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the log in form.
+ *
+ * The tabs above the form are hidden on this page (see the block's settings),
+ * so the way to the password reset page is a plain link under the button.
+ */
+function nsn_theme_form_user_login_form_alter(array &$form) {
+  $form['reset_link'] = [
+    '#type' => 'link',
+    '#title' => t('Forgot your password?'),
+    '#url' => Url::fromRoute('user.pass'),
+    '#prefix' => '<p class="form-help-link">',
+    '#suffix' => '</p>',
+    '#weight' => 200,
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the password reset form.
+ */
+function nsn_theme_form_user_pass_alter(array &$form) {
+  $form['login_link'] = [
+    '#type' => 'link',
+    '#title' => t('Back to log in'),
+    '#url' => Url::fromRoute('user.login'),
+    '#prefix' => '<p class="form-help-link">',
+    '#suffix' => '</p>',
+    '#weight' => 200,
+  ];
 }

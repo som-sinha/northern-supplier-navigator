@@ -56,7 +56,7 @@ These passed:
 | Check | Result |
 |---|---|
 | Skip link | "Skip to main content" is the first item on every page, shows when focused, and its target exists |
-| Landmarks | Every page has a header, navigation (main and account menus, breadcrumb), one main area and a footer |
+| Landmarks | Every page has a header, navigation (main and account menus), one main area and a footer |
 | Headings | One main heading (h1) per page, and no levels skipped |
 | Link text | Every link says where it goes. No "click here" or empty links |
 | Page language and titles | `lang="en"`, and each page has its own title |
@@ -75,7 +75,7 @@ All in the theme, `web/themes/custom/nsn_theme`:
 | The header's blue now runs from Olivero's `primary-40` to the darker `primary-30`, instead of from the lighter `primary-50`. White text on it is now 5.0:1 to 6.5:1 | `css/navigator.css` |
 | A focused menu link in the header is marked with a white box (5.0:1 or more) | `css/navigator.css` |
 | Focus rings on buttons and tabs use `primary-40` (5.0:1 on white, 4.7:1 on the light grey tabs). The open tab's marker uses the same colour | `css/navigator.css` |
-| Messages and tabs moved inside `<main>`. On the Log in page the tabs now sit just below the breadcrumb instead of above it | `templates/page.html.twig` |
+| Messages and tabs moved inside `<main>`. (Release 1.3.1 later removed the tabs from the Log in page and the breadcrumb from every page) | `templates/page.html.twig` |
 
 ## Results after the fixes (local site)
 

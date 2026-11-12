@@ -441,3 +441,8 @@ body {
     break-inside: avoid;
   }
 }
+
+/* "Forgot your password?" and "Back to log in" under the account forms. */
+.form-help-link {
+  margin-block: var(--sp1) 0;
+}
